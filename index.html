@@ -173,12 +173,12 @@
           <div class="embed-head">
             <div class="t">BOSS_I・AI 主管簡報（NotebookLM 生成＋人工後製）</div>
             <div style="display:flex;gap:.5vw">
-              <a class="btn" href="【貼上NotebookLM簡報分享連結】" target="_blank">開啟完整簡報 →</a>
+              <a class="btn" href="slides.html" target="_blank">開啟完整簡報 →</a>
               <!-- 互動儀表板按鈕：部署到 Streamlit Cloud 後把連結貼進 href；不部署就整行刪掉 -->
               <a class="btn" style="background:var(--teal)" href="【貼上Streamlit儀表板連結】" target="_blank">互動儀表板 →</a>
             </div>
           </div>
-          <iframe src="【貼上NotebookLM簡報分享連結】" title="BOSS_I 主管簡報"></iframe>
+          <iframe src="slides.html" title="BOSS_I 主管簡報"></iframe>
           <div class="embed-note">簡報結構：我學了什麼 → 九任務「啥狀況用啥模型」真數字 → Day11「準確率會騙人」深入論述 → 對未來的想法</div>
         </div>
 
@@ -252,7 +252,7 @@
   if (f && (f.getAttribute("src") || "").includes("【")) {
     const d = document.createElement("div");
     d.style.cssText = "flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f0eadf;border-radius:8px;color:#6b5f50;gap:8px;text-align:center;padding:16px";
-    d.innerHTML = '<div style="font-size:2.2em">📊</div><div style="font-weight:800">BOSS_I 簡報預留位</div><div style="font-size:.85em;max-width:32em">NotebookLM 簡報生成後，把分享連結貼進本檔的兩處<br>【貼上NotebookLM簡報分享連結】，這裡就會顯示簡報內容</div>';
+    d.innerHTML = '<div style="font-size:2.2em">📊</div><div style="font-weight:800">BOSS_I 簡報預留位</div><div style="font-size:.85em;max-width:32em">NotebookLM 簡報生成後，把分享連結貼進本檔的兩處<br>slides.html，這裡就會顯示簡報內容</div>';
     f.replaceWith(d);
   }
   document.querySelectorAll("a.btn").forEach(a => {
