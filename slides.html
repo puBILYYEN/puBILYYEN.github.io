@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#3d2414">
-<title>黃德麟｜BOSS_I 主管簡報・智慧物流班</title>
+<title>黃德麟｜資料分析作品簡報</title>
 <style>
   :root{
     --ink:#37302a; --sub:#5f5344; --line:#e6ddce;
@@ -82,24 +82,24 @@
 
   <!-- 1 封面 -->
   <section class="slide cover on">
-    <div class="kicker">青年 AI 實戰養成班・智慧物流班　BOSS_I</div>
+    <div class="kicker">資料分析作品簡報</div>
     <h1>黃德麟</h1>
-    <div class="tag">從真數字開始的資料管家（Data Steward）</div>
-    <div class="memo">四週・九個任務・零次照抄預期值</div>
-    <div class="name">03 黃德麟　·　mcubillyfighter@gmail.com</div>
+    <div class="tag">資料分析師 · 物流與供應鏈數據</div>
+    <div class="memo">工研院 240 小時 AI 實戰・九個資料專案</div>
+    <div class="name">黃德麟　·　mcubillyfighter@gmail.com</div>
   </section>
 
   <!-- 2 我學了什麼 -->
   <section class="slide">
-    <div class="kicker">01　我學了什麼</div>
-    <h2>四週走完「資料 → 管理 → AI → 架構」進化軸</h2>
+    <div class="kicker">01　我的技能地圖</div>
+    <h2>資料 → 分析 → 機器學習 → 系統整合</h2>
     <div class="list">
-      <div class="li"><span class="b">W1 資料驅動師</span><span>Pandas 清洗、Streamlit 儀表板、RFM 分群——把雜亂訂單變成能看的現況。</span></div>
-      <div class="li"><span class="b">W2 管理工程師</span><span>倉儲 ABC、運輸 OTD、採購三表對帳、SCQA 決策簡報——把現況變成管理動作。</span></div>
-      <div class="li"><span class="b">W3 AI 價值師</span><span>分類、回歸、關聯、分群——從「解釋過去」跨進「預測未來」。</span></div>
-      <div class="li"><span class="b">W4 智慧架構師</span><span>文本輿情、路徑最佳化、系統整合、AI Agent——把單點模型組成能落地、會自己動的系統。</span></div>
+      <div class="li"><span class="b">資料處理</span><span>Pandas 清洗、Streamlit 儀表板、RFM 分群——把雜亂訂單變成能看的客戶輪廓。</span></div>
+      <div class="li"><span class="b">商業分析</span><span>倉儲 ABC、運輸準點率、採購三表對帳、決策簡報——把現況變成管理動作。</span></div>
+      <div class="li"><span class="b">機器學習</span><span>分類、回歸、關聯、分群——從「解釋過去」跨進「預測未來」。</span></div>
+      <div class="li"><span class="b">系統與最佳化</span><span>文本情感、OR-Tools 路徑最佳化、SQLite 系統整合、AI Agent——把單點模型組成能落地的系統。</span></div>
     </div>
-    <p class="sub" style="margin-top:2.4vh">貫穿四週的習慣只有一個：每個數字自己重跑驗證，零次照抄講義預期值。</p>
+    <p class="sub" style="margin-top:2.4vh">一貫的習慣：每個結論自己重跑驗證、追得到出處。</p>
   </section>
 
   <!-- 3 我做了什麼（真數字） -->
@@ -107,53 +107,53 @@
     <div class="kicker">02　我做了什麼任務</div>
     <h2>看狀況、選方法、拿到真數字</h2>
     <div class="row">
-      <div class="stat"><div class="n">61.6%</div><div class="l">D6 儲位重排・揀貨距離改善</div></div>
-      <div class="stat"><div class="n">+552%</div><div class="l">D12 雙十一單月加成・Prophet</div></div>
-      <div class="stat"><div class="n">7.32</div><div class="l">D13 尿布×啤酒 Lift・設計預期僅 &gt;1.5</div></div>
-      <div class="stat"><div class="n">75.9%</div><div class="l">D11 流失預測 Recall・假模型 0%</div></div>
+      <div class="stat"><div class="n">61.6%</div><div class="l">倉儲儲位重排・揀貨距離縮短</div></div>
+      <div class="stat"><div class="n">+552%</div><div class="l">雙十一單月需求暴增・Prophet</div></div>
+      <div class="stat"><div class="n">7.32</div><div class="l">尿布×啤酒購物籃 Lift（1＝無關聯）</div></div>
+      <div class="stat"><div class="n">75.9%</div><div class="l">客戶流失預測 Recall・全猜留客僅 0%</div></div>
     </div>
     <p class="sub" style="margin-top:3vh">選方法心法：有沒有標籤→監督/非監督；類別還是數值→分類/回歸；是文字→LLM；要決策不是預測→最佳化；要自動執行→Agent＋人類把關。</p>
   </section>
 
-  <!-- 4 深入論述 Day11 -->
+  <!-- 4 深入案例 客戶流失預測 -->
   <section class="slide">
-    <div class="kicker">03　深入論述・W3 Day11 客戶流失預測</div>
-    <h2>準確率會騙人</h2>
-    <p>情境：1,000 位客戶，要找出誰快流失、優先挽留誰。我刻意做了一個「永遠猜客戶會留下」的假模型當對照——</p>
-    <div class="hero">假模型 Accuracy 80.7% ＞ 真模型 75.3%，<br>但假模型 Recall ＝ 0%：一個要走的客戶都抓不到。</div>
-    <p><b>管理意涵</b>：只看準確率，公司會選一個「什麼都不做」卻分數更高的模型。指標選錯，AI 越準越危險——要救流失客戶，該看的是 Recall。</p>
+    <div class="kicker">03　深入案例・客戶流失預測</div>
+    <h2>為什麼我不用準確率驗收模型</h2>
+    <p>情境：1,000 位客戶，要在有限預算下找出誰快流失、優先挽留誰。我先建一個「永遠猜留客」的 baseline 當對照——</p>
+    <div class="hero">baseline Accuracy 80.7% ＞ 決策樹 75.3%，<br>但 baseline Recall ＝ 0%：一個要走的客戶都抓不到。</div>
+    <p><b>商業意涵</b>：不平衡資料只看準確率，會選到「什麼都不做」卻分數更高的模型。要抓回會流失的客戶，該看的是 Recall——我的模型做到 75.9%，讓挽留資源花在對的人身上。</p>
   </section>
 
-  <!-- 5 三張守門人王牌 -->
+  <!-- 5 三個分析判斷 -->
   <section class="slide">
-    <div class="kicker">04　我的三張「守門人」王牌</div>
-    <h2>我的價值：守住「這個數字能不能信」</h2>
+    <div class="kicker">04　我做對的三個分析判斷</div>
+    <h2>三個一貫的判斷習慣</h2>
     <div class="row">
-      <div class="card"><h3>① 準確率會騙人</h3><p>假模型 80.7% 的無用模型差點看起來比真模型好——沒人把關就會被誤信上線。（Day11）</p></div>
-      <div class="card"><h3>② 官方數字也要驗證</h3><p>Apriori 實測 Lift 7.32，遠超生成腳本設計預期的 &gt;1.5——連出題老師的模擬設計都要自己跑。（Day13）</p></div>
-      <div class="card"><h3>③ 整合先對資料</h3><p>四天練習資料同編號不同人，直接拼會當場自打嘴巴——整合第一步是把資料對齊成一份主檔。（BOSS III）</p></div>
+      <div class="card"><h3>① 用對指標驗收模型</h3><p>全猜留客的 baseline 準確率 80.7% 卻 Recall 0%——不平衡資料要看 Recall／F1，否則會誤放無用模型上線。</p></div>
+      <div class="card"><h3>② 不照收給定的數字</h3><p>購物籃關聯實測 Lift 7.32，遠高於資料本身的設計假設 &gt;1.5——給定的參考值我也自己重算、誠實標註落差。</p></div>
+      <div class="card"><h3>③ 跨來源先對齊主檔</h3><p>多系統客戶主鍵不一致，直接拼會出現互相矛盾的客戶輪廓——整合第一步是建 master 對齊再分析。</p></div>
     </div>
   </section>
 
   <!-- 6 對未來的想法 -->
   <section class="slide">
     <div class="kicker">05　對未來的想法</div>
-    <h2>我想接的題目：資料整合治理／跨系統資料稽核</h2>
+    <h2>我想解決的問題（附做過的縮小版）</h2>
     <table class="t">
       <tr><th>方向</th><th>我做過的縮小版</th></tr>
-      <tr><td class="n">① 資料整合治理・稽核（主打）</td><td>D8 三表對帳抓出 12 倍採購積壓＋29 筆缺口；BOSS III 把四天互不相容的資料對齊成一份主檔</td></tr>
-      <tr><td class="n">② 需求預測・庫存採購決策</td><td>D12 Prophet 勝 3/5 SKU、讀出雙十一 +552% 槓桿，可直接接採購對帳</td></tr>
-      <tr><td class="n">③ 配送路徑・排程最佳化</td><td>D17 OR-Tools 解 CVRPTW，把藏 4 條違規的人工排法變 0 違規可行解</td></tr>
+      <tr><td class="n">① 資料整合・對帳稽核</td><td>跨系統三表對帳抓出 12 倍採購積壓＋29 筆缺口；把四份互不相容的資料對齊成一份主檔</td></tr>
+      <tr><td class="n">② 需求預測・採購決策</td><td>Prophet 銷量預測勝 3/5、讀出雙十一 +552% 備貨槓桿，可直接接採購決策</td></tr>
+      <tr><td class="n">③ 配送路徑・排程最佳化</td><td>OR-Tools 解車輛路徑，把藏 4 條違規的人工排法變 0 違規、成本更低的可行解</td></tr>
     </table>
-    <p style="margin-top:2.5vh"><b>為什麼找我</b>：我最有價值的時刻，都是抓到「數字對不上」的時候——企業真題的資料只會更髒，需要有人守住可信度。</p>
+    <p style="margin-top:2.5vh"><b>我能帶來的</b>：把跨來源、對不上的資料整理成可信的分析基礎，再用模型與最佳化把它變成能行動的決策。企業真實資料只會更雜——這正是我想解決的問題。</p>
   </section>
 
   <!-- 7 結尾 -->
   <section class="slide cover">
     <div class="kicker" style="color:var(--cream)">結尾</div>
-    <h1 style="font-size:3.6vw;line-height:1.35">會分析的人很多，<br>能守住數字可信度的人很少。</h1>
-    <div class="tag" style="margin-top:3vh">四週、九個任務、零次照抄預期值——這就是我的作品集。</div>
-    <div class="name">03 黃德麟　·　mcubillyfighter@gmail.com　·　pubilyyen.github.io</div>
+    <h1 style="font-size:3.6vw;line-height:1.35">把資料變成能行動的決策，<br>是我想為公司做的事。</h1>
+    <div class="tag" style="margin-top:3vh">九個資料專案，每個結論都追得到出處。</div>
+    <div class="name">黃德麟　·　mcubillyfighter@gmail.com　·　pubilyyen.github.io</div>
   </section>
 
 </div>
