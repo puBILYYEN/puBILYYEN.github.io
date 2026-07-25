@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#3d2414">
-<title>黃德麟｜資料管家作品集・智慧物流班</title>
+<title>黃德麟｜資料分析作品集</title>
 <style>
   :root{
     /* 配色方案 #10 STEADY「穩重、成熟、具有歷練感」— 取自配色書實際 RGB */
@@ -71,7 +71,6 @@
   .embed-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8vh}
   .embed-head .t{font-weight:800;color:var(--accent);font-size:1em}
   .btn{background:var(--accent);color:#fff;text-decoration:none;padding:.5vh 1.2vw;border-radius:999px;font-weight:700;font-size:.82em;border:0;cursor:pointer}
-  /* ⚠ 後製：把 NotebookLM 分享連結貼進下面 iframe 的 src 和按鈕的 href（共 2 處） */
   .embed-box iframe{flex:1;width:100%;border:0;border-radius:8px;background:#f0eadf;min-height:0}
   .embed-note{font-size:.76em;color:var(--sub);margin-top:.6vh}
 
@@ -139,31 +138,31 @@
 <body>
 
 <aside>
-  <div class="role">青年 AI 實戰養成班・智慧物流班</div>
+  <div class="role">資料分析師 · Data Analyst</div>
   <h1>黃德麟</h1>
-  <div class="tagline">從真數字開始的資料管家（Data Steward）</div>
-  <div class="memo">四週・九個任務・零次照抄預期值</div>
+  <div class="tagline">物流與供應鏈數據分析</div>
+  <div class="memo">工研院 240 小時 AI 實戰養成・九個資料專案</div>
   <div class="divider"></div>
-  <div class="sum-title">學 習 摘 要</div>
+  <div class="sum-title">專 業 摘 要</div>
   <div class="summary">
-    四週、九個任務，我從看到 CSV 就頭痛的新手，走完「資料 → 管理 → AI → 架構」的完整進化軸：W1 用 Pandas 把雜亂訂單洗成能看的現況、用 RFM 幫客戶分群；W2 站上管理者視角——儲位重排省下 <b>61.6%</b> 揀貨距離、用控制變量法證明準交率的真兇是路線不是司機、三表對帳挖出進銷比 <b>12 倍</b>的採購黑洞；W3 讓 AI 登場——流失預測、銷量預測、關聯規則、K-means 分群，把四個模型整合成給 CMO 的精準行銷引擎；<b>W4 智慧架構師</b>——文本輿情、OR-Tools 路徑最佳化、SQLite 系統整合、AI Agent，把單點模型組成能落地、會自己動的系統。貫穿四週的習慣只有一個：<b>每個數字自己重跑驗證，四週來零次照抄講義預期值</b>——多次抓到教材與實際資料的落差（Apriori 實測 Lift 7.32、遠超腳本設計預期的 1.5），也曾主動修正自己已交付的錯誤結論。我相信資料工作最值錢的不是跑得快，是守得住可信度。
+    我是從零轉入資料領域的分析師，在工研院 240 小時 AI 實戰養成中完成九個資料專案，走完「資料清理 → 商業分析 → 機器學習 → 系統整合」的完整流程：用 Pandas＋RFM 把雜亂訂單洗成可用的<b>客戶輪廓</b>；用分類／回歸／關聯／分群模型做<b>客戶流失預警、需求預測與商品推薦</b>；用 OR-Tools 最佳化<b>配送路徑與排程</b>；再用 SQLite＋Streamlit 把多個系統整合成一張<b>決策儀表板</b>。我習慣把每個結論都實跑驗證、追得到出處，也因此在專案裡抓出並修正過模型與資料的錯誤。
   </div>
   <div class="integrity">
-    ✓ 本作品集每一個數字都是本機實跑、附得出出處，並於 2026-07 逐項重新驗證。<br>
-    過程中我自己抓掉三個站不住的說法（含一個誤植的成績），全部改成查得到的版本——<b>守數字，先從守自己的數字開始。</b>
+    ✓ 本作品集的數字都來自本機實跑、附得出出處。<br>
+    過程中我主動修正過自己的錯誤——包含一份算錯的高風險客戶名單、一個誤植的成績——查證後全部改成站得住的版本。
   </div>
   <div class="contact">
-    <div class="name">黃德麟（03）</div>
+    <div class="name">黃德麟</div>
     <div>📧 <a href="mailto:mcubillyfighter@gmail.com">mcubillyfighter@gmail.com</a></div>
-    <div class="fine">2026 青年 AI 實戰養成班・智慧物流班 結業作品集</div>
+    <div class="fine">工研院 AI 實戰養成班・資料分析作品集</div>
   </div>
 </aside>
 
 <main>
   <div class="tabs">
     <button class="tab active" data-p="p1">總覽</button>
-    <button class="tab" data-p="p2">20 天成果</button>
-    <button class="tab" data-p="p3">守門人・深論</button>
+    <button class="tab" data-p="p2">專案成果</button>
+    <button class="tab" data-p="p3">深入案例</button>
   </div>
 
   <div class="panels">
@@ -171,41 +170,39 @@
     <!-- ══ 分頁 1：門面（預設）══ -->
     <section class="panel active" id="p1">
       <div class="stats">
-        <div class="stat"><div class="num">+552%</div><div class="lbl">雙十一單月加成・Prophet 解讀</div></div>
-        <div class="stat"><div class="num">61.6%</div><div class="lbl">儲位重排・揀貨距離改善</div></div>
-        <div class="stat"><div class="num">75.9%</div><div class="lbl">流失預測 Recall（假模型 0%）</div></div>
-        <div class="stat"><div class="num">7.32</div><div class="lbl">尿布×啤酒 Lift・設計預期僅 >1.5</div></div>
+        <div class="stat"><div class="num">+552%</div><div class="lbl">雙十一單月需求暴增・Prophet 解讀</div></div>
+        <div class="stat"><div class="num">61.6%</div><div class="lbl">倉儲儲位重排・揀貨距離縮短</div></div>
+        <div class="stat"><div class="num">75.9%</div><div class="lbl">客戶流失預測 Recall（全猜留客僅 0%）</div></div>
+        <div class="stat"><div class="num">7.32</div><div class="lbl">尿布×啤酒購物籃關聯 Lift（1＝無關聯）</div></div>
       </div>
 
       <div class="mid">
         <div class="embed-box">
           <div class="embed-head">
-            <div class="t">BOSS_I・AI 主管簡報（NotebookLM 生成＋人工後製）</div>
+            <div class="t">作品簡報 · 資料分析實戰總覽</div>
             <div style="display:flex;gap:.5vw">
               <a class="btn" href="slides.html" target="_blank">開啟完整簡報 →</a>
-              <!-- 互動儀表板按鈕：部署到 Streamlit Cloud 後把連結貼進 href；不部署就整行刪掉 -->
-              <a class="btn" style="background:var(--teal)" href="【貼上Streamlit儀表板連結】" target="_blank">互動儀表板 →</a>
             </div>
           </div>
-          <iframe src="slides.html" title="BOSS_I 主管簡報"></iframe>
-          <div class="embed-note">簡報結構：我學了什麼 → 九任務「啥狀況用啥模型」真數字 → Day11「準確率會騙人」深入論述 → 對未來的想法</div>
+          <iframe src="slides.html" title="作品簡報"></iframe>
+          <div class="embed-note">簡報結構：我的技能地圖 → 九個專案「什麼情境用什麼模型」→ 客戶流失預測深入案例 → 我想解決的問題</div>
         </div>
 
         <div class="cards">
-          <div class="head">三張「守門人」王牌（詳見「守門人・深論」頁）</div>
-          <div class="card"><h3>準確率會騙人</h3><p>假模型 Accuracy 80.7% 贏過真模型，但 Recall＝0%、一個流失客戶都抓不到——指標選錯，AI 越準越危險。</p></div>
-          <div class="card"><h3>官方數字也要驗證</h3><p>Apriori 實測 Lift 7.32，遠超生成腳本設計預期的「>1.5」——連出題者的模擬設計都不能照單全收。</p></div>
-          <div class="card"><h3>整合先對資料</h3><p>BOSS III 四天練習資料同編號不同人，直接拼會當場自打嘴巴——第一步永遠是把資料對齊成一份主檔。</p></div>
+          <div class="head">三個我做對的分析判斷（詳見「深入案例」頁）</div>
+          <div class="card"><h3>用對的指標驗收模型</h3><p>全猜「留客」的 baseline 模型 Accuracy 80.7%，但 Recall＝0%、一個要流失的客戶都抓不到——所以我用 Recall（抓漏率）當主指標。</p></div>
+          <div class="card"><h3>不照收給定的數字</h3><p>購物籃關聯實測 Lift 7.32，遠高於資料本身的設計假設（&gt;1.5）——給定的參考值我也會自己重算，不照單全收。</p></div>
+          <div class="card"><h3>跨來源先對齊主檔</h3><p>四個系統的客戶主鍵不一致，直接 join 會產生互相矛盾的客戶輪廓——第一步永遠是建立 master 對齊，再分析。</p></div>
         </div>
       </div>
 
       <div class="want">
         <div class="head">我能為公司<br>解決的問題</div>
         <div class="body">
-          <div><b>客戶經營</b>：用流失預測、K-means 分群、Apriori 關聯，幫公司提早抓出高風險客戶、找出誰該優先經營、推對的商品（Day11／13／14）。</div>
-          <div><b>需求與庫存</b>：Prophet 銷量預測接上採購決策，幫公司備對貨、少壓資金——SKU 預測勝 3/5、讀出雙十一 +552% 的備貨槓桿（Day12）。</div>
-          <div><b>物流最佳化</b>：OR-Tools 解配送路徑與排程，把人工排出來、藏著 4 條違規的方案，變成 0 違規、成本更低的可行解（Day17）。</div>
-          <div><b>資料整合與可信度</b>：跨系統對帳、多來源資料對齊稽核，幫公司守住決策數據的可信度——三表對帳抓出 12 倍採購積壓、整合日把四份對不上的資料對齊成一份主檔（Day8／BOSS III）。</div><div style="margin-top:.6vh"><b>我正在求職</b>：尋找資料分析／BI、物流供應鏈分析、資料工程相關職位。若貴公司有這類需求，歡迎來信 mcubillyfighter@gmail.com 談談我能帶來什麼。</div>
+          <div><b>客戶經營</b>：用流失預警、K-means 分群、購物籃關聯，提早找出高風險客戶、鎖定優先經營對象、推對的商品組合。</div>
+          <div><b>需求與庫存</b>：用 Prophet 銷量預測接上採購決策，幫公司備對貨、少壓資金——並讀出雙十一單月 +552% 的備貨槓桿。</div>
+          <div><b>物流最佳化</b>：用 OR-Tools 解配送路徑與排程，把人工排班藏著的違規清成 0、成本更低的可行解。</div>
+          <div><b>資料整合與可信度</b>：跨系統對帳、多來源主檔對齊，讓決策數據站得住——三表對帳抓出 12 倍採購積壓、把四份對不上的資料整合成一份主檔。</div><div style="margin-top:.6vh"><b>我正在求職</b>：尋找資料分析／BI、物流供應鏈分析、資料工程相關職位。若貴公司有這類需求，歡迎來信 mcubillyfighter@gmail.com 談談我能帶來什麼。</div>
         </div>
       </div>
     </section>
@@ -213,15 +210,15 @@
     <!-- ══ 分頁 2：20 天成果（可捲動）══ -->
     <section class="panel scroll" id="p2">
       <div class="method">
-        <b>選方法的心法</b>：先看資料長相 → 有標籤？（有＝監督式／沒有＝分群·關聯）→ 答案是類別還是數值？（類別＝分類／數值＝回歸·時序）→ 是文字？（＝LLM）→ 要的是決策不是預測？（＝最佳化）→ 要自動執行？（＝Agent＋人類把關）。下面六張圖，全部是課程期間本機實跑、且 <b>2026-07 逐項重新驗證</b>過的真數字。
+        <b>選方法的心法</b>：先看資料長相 → 有標籤？（有＝監督式／沒有＝分群·關聯）→ 答案是類別還是數值？（類別＝分類／數值＝回歸·時序）→ 是文字？（＝LLM）→ 要的是決策不是預測？（＝最佳化）→ 要自動執行？（＝Agent＋人類把關）。下面六張圖，全部是<b>本機實跑、追得到出處</b>的真數字。
       </div>
       <div class="charts">
 
         <figure class="chart">
-          <h4>① 準確率會騙人（Day11）</h4>
+          <h4>① 用對指標驗收模型｜客戶流失預測</h4>
           <svg viewBox="0 0 300 175" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
-            <rect x="150" y="5" width="10" height="10" rx="2" fill="#916a28"/><text x="164" y="14" font-size="11" fill="#5f5344">假模型</text>
-            <rect x="212" y="5" width="10" height="10" rx="2" fill="#6e4526"/><text x="226" y="14" font-size="11" fill="#5f5344">真模型</text>
+            <rect x="150" y="5" width="10" height="10" rx="2" fill="#916a28"/><text x="164" y="14" font-size="11" fill="#5f5344">基準線</text>
+            <rect x="212" y="5" width="10" height="10" rx="2" fill="#6e4526"/><text x="226" y="14" font-size="11" fill="#5f5344">決策樹</text>
             <line x1="40" y1="150" x2="292" y2="150" stroke="#e6ddce"/>
             <rect x="60" y="53" width="34" height="97" rx="2" fill="#916a28"/>
             <rect x="98" y="59" width="34" height="91" rx="2" fill="#6e4526"/>
@@ -234,11 +231,11 @@
             <text x="247" y="53" font-size="12" font-weight="700" fill="#37302a" text-anchor="middle">75.9</text>
             <text x="228" y="166" font-size="11.5" fill="#5f5344" text-anchor="middle">抓漏率 Recall</text>
           </svg>
-          <figcaption>假模型準確率 <b>80.7%</b> 反而更高，Recall 卻是 <b>0%</b>——一個要走的客戶都抓不到。指標選錯，AI 越準越危險。</figcaption>
+          <figcaption>全猜留客的 baseline 準確率 <b>80.7%</b> 反而更高，Recall 卻是 <b>0%</b>——一個要走的客戶都抓不到，所以我改用 Recall 當主指標。</figcaption>
         </figure>
 
         <figure class="chart">
-          <h4>② 官方數字也要驗證（Day13）</h4>
+          <h4>② 購物籃關聯強度｜Lift</h4>
           <svg viewBox="0 0 300 165" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
             <line x1="128" y1="18" x2="128" y2="140" stroke="#a33b2a" stroke-width="1.2" stroke-dasharray="4 3"/>
             <text x="131" y="152" font-size="10.5" fill="#a33b2a">設計預期 &gt;1.5</text>
@@ -252,11 +249,11 @@
             <rect x="95" y="106" width="114" height="20" rx="3" fill="#916a28"/>
             <text x="214" y="121" font-size="12" font-weight="800" fill="#916a28">5.18</text>
           </svg>
-          <figcaption>Apriori 實測 Lift <b>7.32</b>，遠超生成腳本設計預期的「&gt;1.5」——連出題者的模擬設計都不能照單全收。</figcaption>
+          <figcaption>購物籃關聯實測 Lift <b>7.32</b>（1＝無關聯），遠高於資料本身的設計假設「&gt;1.5」——給定的參考值我也會自己重算。</figcaption>
         </figure>
 
         <figure class="chart">
-          <h4>③ 路徑最佳化（Day17）</h4>
+          <h4>③ 配送路徑最佳化｜成本與違規</h4>
           <svg viewBox="0 0 300 175" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
             <line x1="40" y1="150" x2="285" y2="150" stroke="#e6ddce"/>
             <rect x="72" y="35" width="62" height="115" rx="3" fill="#a33b2a"/>
@@ -266,11 +263,11 @@
             <text x="103" y="164" font-size="11" fill="#5f5344" text-anchor="middle">人工·6 違規</text>
             <text x="213" y="164" font-size="11" fill="#5f5344" text-anchor="middle">OR-Tools·0 違規</text>
           </svg>
-          <figcaption>成本只降 3.3%，但把 <b>6 條違規</b>（4 時窗+2 超工時）清成 <b>0</b>——賣的是「跑得動的可行解」。</figcaption>
+          <figcaption>成本降 3.3%，更把 <b>6 條違規</b>（4 時窗+2 超工時）清成 <b>0</b>——重點是能實際執行的可行解。</figcaption>
         </figure>
 
         <figure class="chart">
-          <h4>④ 客戶分群（Day14）</h4>
+          <h4>④ 客戶分群｜四群輪廓</h4>
           <svg viewBox="0 0 300 165" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
             <text x="4" y="42" font-size="10.5" fill="#5f5344">穩定中段</text>
             <rect x="88" y="30" width="175" height="20" rx="3" fill="#2f5250"/>
@@ -289,7 +286,7 @@
         </figure>
 
         <figure class="chart">
-          <h4>⑤ 儲位重排（Day6）</h4>
+          <h4>⑤ 倉儲儲位重排｜揀貨距離</h4>
           <svg viewBox="0 0 300 175" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
             <line x1="40" y1="150" x2="285" y2="150" stroke="#e6ddce"/>
             <rect x="72" y="35" width="60" height="115" rx="3" fill="#916a28"/>
@@ -304,7 +301,7 @@
         </figure>
 
         <figure class="chart">
-          <h4>⑥ 揪出病灶路線（Day7）</h4>
+          <h4>⑥ 配送準點率｜找出病灶路線</h4>
           <svg viewBox="0 0 300 175" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
             <line x1="40" y1="150" x2="285" y2="150" stroke="#e6ddce"/>
             <rect x="72" y="55" width="60" height="95" rx="3" fill="#6e4526"/>
@@ -320,25 +317,25 @@
       </div>
     </section>
 
-    <!-- ══ 分頁 3：守門人・深論 ══ -->
+    <!-- ══ 分頁 3：深入案例 ══ -->
     <section class="panel" id="p3">
       <div class="deep">
         <div class="lead">
-          <h2>深入論述：Day11「準確率會騙人」</h2>
-          <p><b>情境</b>：1,000 位客戶，要找出誰快流失、優先挽留誰。</p>
-          <h4>我做的反直覺實驗</h4>
-          <p>我刻意做了一個「永遠猜客戶會留下」的假模型當對照——</p>
-          <div class="big">假模型 Accuracy 80.7% ＞ 真模型 75.3%，<br>但假模型 Recall ＝ 0%：一個要走的客戶都抓不到。</div>
-          <h4>管理意涵</h4>
-          <p>如果只看準確率，公司會選一個「什麼都不做」卻分數更高的模型。指標選錯，AI 越準越危險。要救流失客戶，該看的是 Recall（我的真模型 75.9%，四個抓三個）。</p>
+          <h2>深入案例：客戶流失預測</h2>
+          <p><b>情境</b>：1,000 位客戶，要在有限行銷預算下，找出誰快流失、優先挽留誰。</p>
+          <h4>做法：先建 baseline，再選對指標</h4>
+          <p>我先做一個「永遠猜客戶會留下」的 baseline 當對照，再訓練決策樹模型——</p>
+          <div class="big">baseline Accuracy 80.7% ＞ 決策樹 75.3%，<br>但 baseline Recall ＝ 0%：一個要走的客戶都抓不到。</div>
+          <h4>商業意涵</h4>
+          <p>不平衡資料下只看準確率，會選到一個「什麼都不做」卻分數更高的模型。要抓回會流失的客戶，該看的是 Recall——我的模型做到 75.9%，四個要走的抓回三個，讓挽留資源花在對的人身上。</p>
           <h4>一個誠實的教訓</h4>
-          <p>我第一版的 Top10 高風險名單和官方答案版對不上，逐行比對程式碼才發現漏了「用全部資料重訓正式模型」這一步。抓錯、修正、重交——這就是我當資料管家的紀律，也是這份作品集裡每個數字都附得出出處的原因。</p>
+          <p>我第一版的高風險客戶名單和正確做法對不上，逐行比對才發現漏了「用全部資料重訓正式模型」這一步。抓錯、修正、重做——這就是我做資料的習慣，也是這份作品集每個數字都追得到出處的原因。</p>
         </div>
         <div class="side">
-          <div class="cards"><div class="head">三張「守門人」王牌</div></div>
-          <div class="card"><h3>① 準確率會騙人（Day11）</h3><p>假模型 80.7% 的無用模型差點看起來比真模型好——沒人把關就會被誤信上線。指標的守門人。</p></div>
-          <div class="card"><h3>② 官方數字也要驗證（Day13）</h3><p>Apriori 實測 Lift 7.32，遠超生成腳本設計預期的 &gt;1.5——連出題老師的模擬設計都和實測有落差，官方數字也要自己跑。</p></div>
-          <div class="card"><h3>③ 整合先對資料（BOSS III）</h3><p>四天練習資料同編號不同人，直接拼進同一個 App 會出現「M2 說 163 天沒下單、M4 說上週剛回購」的自打嘴巴——整合第一步是把資料對齊成一份主檔。</p></div>
+          <div class="cards"><div class="head">三個我做對的分析判斷</div></div>
+          <div class="card"><h3>① 用對指標驗收模型</h3><p>全猜留客的 baseline 準確率 80.7% 卻 Recall 0%——若只看準確率就會誤放這種無用模型上線。不平衡資料要看 Recall／F1。</p></div>
+          <div class="card"><h3>② 不照收給定的數字</h3><p>購物籃關聯實測 Lift 7.32，遠高於資料本身的設計假設 &gt;1.5——給定的參考值我也自己重算，落差會誠實標註。</p></div>
+          <div class="card"><h3>③ 跨來源先對齊主檔</h3><p>四個系統的客戶主鍵不一致，直接 join 會出現「一邊說 163 天沒下單、另一邊說上週剛回購」的矛盾——整合第一步是建 master 對齊。</p></div>
         </div>
       </div>
     </section>
@@ -355,20 +352,6 @@
       btn.classList.add("active");
       document.getElementById(btn.dataset.p).classList.add("active");
     });
-  });
-
-
-  // 占位保護：連結還沒貼上（src/href 還含「【」）之前——
-  // ① iframe 顯示好看的預留位卡片，不出現 404；② 按鈕自動隱藏，不留死連結。
-  const f = document.querySelector(".embed-box iframe");
-  if (f && (f.getAttribute("src") || "").includes("【")) {
-    const d = document.createElement("div");
-    d.style.cssText = "flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f0eadf;border-radius:8px;color:#6b5f50;gap:8px;text-align:center;padding:16px";
-    d.innerHTML = '<div style="font-size:2.2em">📊</div><div style="font-weight:800">BOSS_I 簡報預留位</div><div style="font-size:.85em;max-width:32em">NotebookLM 簡報生成後，把分享連結貼進本檔的兩處<br>slides.html，這裡就會顯示簡報內容</div>';
-    f.replaceWith(d);
-  }
-  document.querySelectorAll("a.btn").forEach(a => {
-    if ((a.getAttribute("href") || "").includes("【")) a.style.display = "none";
   });
 </script>
 </body>
