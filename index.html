@@ -140,6 +140,269 @@
     四週、九個任務，我從看到 CSV 就頭痛的新手，走完「資料 → 管理 → AI」的完整進化軸：W1 用 Pandas 把雜亂訂單洗成能看的現況、用 RFM 幫客戶分群；W2 站上管理者視角——儲位重排省下 <b>61.6%</b> 揀貨距離、用控制變量法證明準交率的真兇是路線不是司機、三表對帳挖出進銷比 <b>12 倍</b>的採購黑洞；W3 讓 AI 登場——流失預測、銷量預測、關聯規則、K-means 分群，一路做到把四個模型整合成給 CMO 的精準行銷引擎。貫穿三週的習慣只有一個：<b>每個數字自己重跑驗證，四週來零次照抄講義預期值</b>——多次抓到教材與實際資料的落差（Apriori 實測 Lift 7.32、遠超腳本設計預期的 1.5），也曾主動修正自己已交付的錯誤結論。我相信資料工作最值錢的不是跑得快，是守得住可信度。
   </div>
   <div class="integrity">
+    ✓ 本作品集每一個數字都是本機實跑、附得出出處，並於 2026-07 逐項重新驗證。<br>
+    過程中我自己抓掉三個站不住的說法（含一個誤植的成績），全部改成查得到的版本——<b>守數字，先從守自己的數字開始。</b>
+  </div>
+  <div class="contact">
+    <div class="name">黃德麟（03）</div>
+    <div>📧 <a href="mailto:mcubillyfighter@gmail.com">mcubillyfighter@gmail.com</a></div>
+    <div class="fine">2026 青年 AI 實戰養成班・智慧物流班 結業作品集</div>
+  </div>
+</aside>
+
+<main>
+  <div class="tabs">
+    <button class="tab active" data-p="p1">總覽</button>
+    <button class="tab" data-p="p2">20 天成果</button>
+    <button class="tab" data-p="p3">守門人・深論</button>
+  </div>
+
+  <div class="panels">
+
+    <!-- ══ 分頁 1：門面（預設）══ -->
+    <section class="panel active" id="p1">
+      <div class="stats">
+        <div class="stat"><div class="num">+552%</div><div class="lbl">雙十一單月加成・Prophet 解讀</div></div>
+        <div class="stat"><div class="num">61.6%</div><div class="lbl">儲位重排・揀貨距離改善</div></div>
+        <div class="stat"><div class="num">75.9%</div><div class="lbl">流失預測 Recall（假模型 0%）</div></div>
+        <div class="stat"><div class="num">7.32</div><div class="lbl">尿布×啤酒 Lift・設計預期僅 >1.5</div></div>
+      </div>
+
+      <div class="mid">
+        <div class="embed-box">
+          <div class="embed-head">
+            <div class="t">BOSS_I・AI 主管簡報（NotebookLM 生成＋人工後製）</div>
+            <div style="display:flex;gap:.5vw">
+              <a class="btn" href="slides.html" target="_blank">開啟完整簡報 →</a>
+              <!-- 互動儀表板按鈕：部署到 Streamlit Cloud 後把連結貼進 href；不部署就整行刪掉 -->
+              <a class="btn" style="background:var(--teal)" href="【貼上Streamlit儀表板連結】" target="_blank">互動儀表板 →</a>
+            </div>
+          </div>
+          <iframe src="slides.html" title="BOSS_I 主管簡報"></iframe>
+          <div class="embed-note">簡報結構：我學了什麼 → 九任務「啥狀況用啥模型」真數字 → Day11「準確率會騙人」深入論述 → 對未來的想法</div>
+        </div>
+
+        <div class="cards">
+          <div class="head">三張「守門人」王牌（詳見「守門人・深論」頁）</div>
+          <div class="card"><h3>準確率會騙人</h3><p>假模型 Accuracy 80.7% 贏過真模型，但 Recall＝0%、一個流失客戶都抓不到——指標選錯，AI 越準越危險。</p></div>
+          <div class="card"><h3>官方數字也要驗證</h3><p>Apriori 實測 Lift 7.32，遠超生成腳本設計預期的「>1.5」——連出題者的模擬設計都不能照單全收。</p></div>
+          <div class="card"><h3>整合先對資料</h3><p>BOSS III 四天練習資料同編號不同人，直接拼會當場自打嘴巴——第一步永遠是把資料對齊成一份主檔。</p></div>
+        </div>
+      </div>
+
+      <div class="want">
+        <div class="head">我能為公司<br>解決的問題</div>
+        <div class="body">
+          <div><b>客戶經營</b>：用流失預測、K-means 分群、Apriori 關聯，幫公司提早抓出高風險客戶、找出誰該優先經營、推對的商品（Day11／13／14）。</div>
+          <div><b>需求與庫存</b>：Prophet 銷量預測接上採購決策，幫公司備對貨、少壓資金——SKU 預測勝 3/5、讀出雙十一 +552% 的備貨槓桿（Day12）。</div>
+          <div><b>物流最佳化</b>：OR-Tools 解配送路徑與排程，把人工排出來、藏著 4 條違規的方案，變成 0 違規、成本更低的可行解（Day17）。</div>
+          <div><b>資料整合與可信度</b>：跨系統對帳、多來源資料對齊稽核，幫公司守住決策數據的可信度——三表對帳抓出 12 倍採購積壓、整合日把四份對不上的資料對齊成一份主檔（Day8／BOSS III）。</div><div style="margin-top:.6vh"><b>我正在求職</b>：尋找資料分析／BI、物流供應鏈分析、資料工程相關職位。若貴公司有這類需求，歡迎來信 mcubillyfighter@gmail.com 談談我能帶來什麼。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 分頁 2：20 天成果（可捲動）══ -->
+    <section class="panel scroll" id="p2">
+      <div class="method">
+        <b>選方法的心法</b>：先看資料長相 → 有標籤？（有＝監督式／沒有＝分群·關聯）→ 答案是類別還是數值？（類別＝分類／數值＝回歸·時序）→ 是文字？（＝LLM）→ 要的是決策不是預測？（＝最佳化）→ 要自動執行？（＝Agent＋人類把關）。下面六張圖，全部是課程期間本機實跑、且 <b>2026-07 逐項重新驗證</b>過的真數字。
+      </div>
+      <div class="method" style="text-align:center">📊 六張成果圖表（準確率陷阱／Lift／路徑成本／四群客戶／儲位重排／病灶路線）詳見 BOSS_I 簡報；此線上版週末補上高解析圖。</div></section>
+
+    <!-- ══ 分頁 3：守門人・深論 ══ -->
+    <section class="panel" id="p3">
+      <div class="deep">
+        <div class="lead">
+          <h2>深入論述：Day11「準確率會騙人」</h2>
+          <p><b>情境</b>：1,000 位客戶，要找出誰快流失、優先挽留誰。</p>
+          <h4>我做的反直覺實驗</h4>
+          <p>我刻意做了一個「永遠猜客戶會留下」的假模型當對照——</p>
+          <div class="big">假模型 Accuracy 80.7% ＞ 真模型 75.3%，<br>但假模型 Recall ＝ 0%：一個要走的客戶都抓不到。</div>
+          <h4>管理意涵</h4>
+          <p>如果只看準確率，公司會選一個「什麼都不做」卻分數更高的模型。指標選錯，AI 越準越危險。要救流失客戶，該看的是 Recall（我的真模型 75.9%，四個抓三個）。</p>
+          <h4>一個誠實的教訓</h4>
+          <p>我第一版的 Top10 高風險名單和官方答案版對不上，逐行比對程式碼才發現漏了「用全部資料重訓正式模型」這一步。抓錯、修正、重交——這就是我當資料管家的紀律，也是這份作品集裡每個數字都附得出出處的原因。</p>
+        </div>
+        <div class="side">
+          <div class="cards"><div class="head">三張「守門人」王牌</div></div>
+          <div class="card"><h3>① 準確率會騙人（Day11）</h3><p>假模型 80.7% 的無用模型差點看起來比真模型好——沒人把關就會被誤信上線。指標的守門人。</p></div>
+          <div class="card"><h3>② 官方數字也要驗證（Day13）</h3><p>Apriori 實測 Lift 7.32，遠超生成腳本設計預期的 &gt;1.5——連出題老師的模擬設計都和實測有落差，官方數字也要自己跑。</p></div>
+          <div class="card"><h3>③ 整合先對資料（BOSS III）</h3><p>四天練習資料同編號不同人，直接拼進同一個 App 會出現「M2 說 163 天沒下單、M4 說上週剛回購」的自打嘴巴——整合第一步是把資料對齊成一份主檔。</p></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  // 分頁切換（純前端切區塊，不換檔、不重載 → 仍是「一頁 HTML」，官方合規、可上 GitHub Pages）
+  document.querySelectorAll(".tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.p).classList.add("active");
+    });
+  });
+
+
+  // 占位保護：連結還沒貼上（src/href 還含「【」）之前——
+  // ① iframe 顯示好看的預留位卡片，不出現 404；② 按鈕自動隱藏，不留死連結。
+  const f = document.querySelector(".embed-box iframe");
+  if (f && (f.getAttribute("src") || "").includes("【")) {
+    const d = document.createElement("div");
+    d.style.cssText = "flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f0eadf;border-radius:8px;color:#6b5f50;gap:8px;text-align:center;padding:16px";
+    d.innerHTML = '<div style="font-size:2.2em">📊</div><div style="font-weight:800">BOSS_I 簡報預留位</div><div style="font-size:.85em;max-width:32em">NotebookLM 簡報生成後，把分享連結貼進本檔的兩處<br>slides.html，這裡就會顯示簡報內容</div>';
+    f.replaceWith(d);
+  }
+  document.querySelectorAll("a.btn").forEach(a => {
+    if ((a.getAttribute("href") || "").includes("【")) a.style.display = "none";
+  });
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3d2414">
+<title>黃德麟｜資料管家作品集・智慧物流班</title>
+<style>
+  :root{
+    /* 配色方案 #10 STEADY「穩重、成熟、具有歷練感」— 取自配色書實際 RGB */
+    --ink:#37302a; --sub:#5f5344; --line:#e6ddce;
+    --accent:#6e4526; --accent-soft:#f3ebdd;
+    --gold:#916a28; --teal:#2f5250; --bg:#f6f1e8; --card:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    background:var(--bg);color:var(--ink);
+    height:100vh;overflow:hidden;display:flex;
+    font-size:clamp(13px,1.55vh,17px);line-height:1.6;
+  }
+
+  /* ── 左側常駐身份欄 ── */
+  aside{
+    width:clamp(340px,23vw,450px);flex-shrink:0;
+    background:linear-gradient(165deg,#3d2414 0%,#6e4526 100%);color:#fff;
+    display:flex;flex-direction:column;padding:2.4vh 1.8vw;
+  }
+  aside .role{font-size:.82em;letter-spacing:.3em;opacity:.85}
+  aside h1{font-size:2.5em;letter-spacing:.06em;margin:.7vh 0 .5vh}
+  aside .tagline{font-size:1.08em;font-weight:700;color:#ecd6ab}
+  aside .memo{font-size:.88em;opacity:.9;margin-top:.5vh}
+  aside .divider{height:1px;background:rgba(255,255,255,.28);margin:1.6vh 0}
+  aside .sum-title{font-size:.92em;font-weight:700;letter-spacing:.14em;opacity:.9;margin-bottom:.8vh}
+  aside .summary{font-size:.9em;line-height:1.72;text-align:justify;opacity:.97}
+  aside .summary b{color:#ecd6ab;font-weight:700}
+  aside .integrity{margin-top:1.3vh;font-size:.82em;line-height:1.55;color:#ecd6ab;
+    border-left:3px solid #ecd6ab;padding:.4vh .8vw;background:rgba(255,255,255,.06);border-radius:0 6px 6px 0}
+  aside .contact{margin-top:auto;padding-top:1.4vh;border-top:1px solid rgba(255,255,255,.28)}
+  aside .contact .name{font-weight:800;font-size:1.02em}
+  aside .contact a{color:#e7d9bf;text-decoration:none;font-weight:700;font-size:.95em}
+  aside .fine{font-size:.72em;opacity:.75;margin-top:.6vh}
+
+  /* ── 右側主區（分頁）── */
+  main{flex:1;display:flex;flex-direction:column;padding:2vh 1.4vw 1.4vh;min-width:0}
+
+  .tabs{display:flex;gap:.5vw;flex-shrink:0;margin-bottom:1.4vh;border-bottom:2px solid var(--line)}
+  .tab{
+    appearance:none;background:none;border:0;cursor:pointer;font-family:inherit;
+    font-size:.98em;font-weight:700;color:var(--sub);padding:.8vh 1.3vw;
+    border-bottom:3px solid transparent;margin-bottom:-2px;transition:.15s;
+  }
+  .tab:hover{color:var(--accent)}
+  .tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+  .panels{flex:1;min-height:0}
+  .panel{display:none;height:100%;flex-direction:column;gap:1.4vh}
+  .panel.active{display:flex}
+  .panel.scroll{overflow-y:auto;display:none}
+  .panel.scroll.active{display:block}
+
+  /* 通用卡片 */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;flex-shrink:0}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2vh 1vw;text-align:center}
+  .stat .num{font-size:1.75em;font-weight:800;color:var(--accent);line-height:1.2}
+  .stat .lbl{font-size:.8em;color:var(--sub);margin-top:.3vh}
+
+  .mid{flex:1;display:grid;grid-template-columns:1.45fr 1fr;gap:1vw;min-height:0}
+  .embed-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.2vh 1vw;display:flex;flex-direction:column;min-height:0}
+  .embed-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8vh}
+  .embed-head .t{font-weight:800;color:var(--accent);font-size:1em}
+  .btn{background:var(--accent);color:#fff;text-decoration:none;padding:.5vh 1.2vw;border-radius:999px;font-weight:700;font-size:.82em;border:0;cursor:pointer}
+  /* ⚠ 後製：把 NotebookLM 分享連結貼進下面 iframe 的 src 和按鈕的 href（共 2 處） */
+  .embed-box iframe{flex:1;width:100%;border:0;border-radius:8px;background:#f0eadf;min-height:0}
+  .embed-note{font-size:.76em;color:var(--sub);margin-top:.6vh}
+
+  .cards{display:flex;flex-direction:column;gap:1.2vh;min-height:0}
+  .cards .head{font-weight:800;color:var(--accent);font-size:1em;flex-shrink:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.1vh 1vw;flex:1;min-height:0;overflow:hidden}
+  .card h3{font-size:.92em;color:var(--gold);margin-bottom:.3vh}
+  .card p{font-size:.82em;color:var(--sub);line-height:1.55}
+
+  .want{flex-shrink:0;background:var(--accent-soft);border-left:6px solid var(--accent);border-radius:0 12px 12px 0;padding:1.3vh 1.2vw;display:flex;gap:1.6vw;align-items:center}
+  .want .head{font-weight:800;font-size:1.06em;color:var(--accent);white-space:nowrap}
+  .want .body{font-size:.86em;color:var(--ink);line-height:1.55}
+  .want .body b{color:var(--accent)}
+
+  /* 分頁②：成果圖庫 */
+  .method{background:var(--accent-soft);border-radius:12px;padding:1.1vh 1.2vw;font-size:.88em;color:var(--ink);margin-bottom:1.2vh}
+  .method b{color:var(--accent)}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1vw}
+  .gallery figure{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .gallery img{width:100%;display:block;background:#fff}
+  .gallery figcaption{font-size:.78em;color:var(--sub);padding:.7vh 1vw}
+
+  /* 分頁③：深論 */
+  .deep{display:grid;grid-template-columns:1.3fr 1fr;gap:1.2vw;height:100%}
+  .deep .lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.6vh 1.4vw;overflow-y:auto}
+  .deep .lead h2{color:var(--accent);font-size:1.25em;margin-bottom:1vh}
+  .deep .lead h4{color:var(--gold);font-size:.95em;margin:1.2vh 0 .3vh}
+  .deep .lead p{font-size:.9em;color:var(--ink);line-height:1.7}
+  .deep .lead .big{font-size:1.05em;font-weight:800;color:var(--accent);background:var(--accent-soft);border-radius:8px;padding:.9vh 1vw;margin:1vh 0}
+  .deep .side{display:flex;flex-direction:column;gap:1vh;overflow-y:auto}
+  .deep .side .card{flex:none}
+
+  /* ── 手機版（≤900px）：常駐欄變頁首、分頁改直排捲動 ── */
+  @media (max-width: 900px){
+    body{flex-direction:column;height:auto;min-height:100vh;overflow:auto;font-size:15.5px}
+    aside{width:100%;padding:22px 20px}
+    aside .contact{margin-top:18px}
+    main{padding:0}
+    .tabs{position:sticky;top:0;background:var(--bg);z-index:5;padding:0 14px;margin:0;overflow-x:auto}
+    .tab{white-space:nowrap;padding:12px 14px}
+    .panels{padding:14px}
+    .panel,.panel.scroll{height:auto}
+    .stats{grid-template-columns:repeat(2,1fr);gap:10px}
+    .mid{grid-template-columns:1fr;gap:14px}
+    .embed-box iframe{min-height:300px}
+    .embed-head{flex-direction:column;align-items:flex-start;gap:6px}
+    .cards .card{flex:none}
+    .gallery{grid-template-columns:1fr}
+    .deep{grid-template-columns:1fr;height:auto}
+    .want{flex-direction:column;align-items:flex-start;gap:8px;padding:14px 16px}
+    .want .head{white-space:normal}
+    .want .head br{display:none}
+  }
+</style>
+</head>
+<body>
+
+<aside>
+  <div class="role">青年 AI 實戰養成班・智慧物流班</div>
+  <h1>黃德麟</h1>
+  <div class="tagline">從真數字開始的資料管家（Data Steward）</div>
+  <div class="memo">四週・九個任務・零次照抄預期值</div>
+  <div class="divider"></div>
+  <div class="sum-title">學 習 摘 要</div>
+  <div class="summary">
+    四週、九個任務，我從看到 CSV 就頭痛的新手，走完「資料 → 管理 → AI」的完整進化軸：W1 用 Pandas 把雜亂訂單洗成能看的現況、用 RFM 幫客戶分群；W2 站上管理者視角——儲位重排省下 <b>61.6%</b> 揀貨距離、用控制變量法證明準交率的真兇是路線不是司機、三表對帳挖出進銷比 <b>12 倍</b>的採購黑洞；W3 讓 AI 登場——流失預測、銷量預測、關聯規則、K-means 分群，一路做到把四個模型整合成給 CMO 的精準行銷引擎。貫穿三週的習慣只有一個：<b>每個數字自己重跑驗證，四週來零次照抄講義預期值</b>——多次抓到教材與實際資料的落差（Apriori 實測 Lift 7.32、遠超腳本設計預期的 1.5），也曾主動修正自己已交付的錯誤結論。我相信資料工作最值錢的不是跑得快，是守得住可信度。
+  </div>
+  <div class="integrity">
     ✓ 本作品集每一個數字都是本機實跑、附得出出處，並於 2026-07 逐順重新驗證。<br>
     過程中我自己抓掉三個站不住的說法（含一個誤植的成績），全部改成查得到的版本——<b>守數字，先從守自己的數字開始。</b>
   </div>
