@@ -92,13 +92,14 @@
   <!-- 2 我學了什麼 -->
   <section class="slide">
     <div class="kicker">01　我學了什麼</div>
-    <h2>三週走完「資料 → 管理 → AI」進化軸</h2>
+    <h2>四週走完「資料 → 管理 → AI → 架構」進化軸</h2>
     <div class="list">
       <div class="li"><span class="b">W1 資料驅動師</span><span>Pandas 清洗、Streamlit 儀表板、RFM 分群——把雜亂訂單變成能看的現況。</span></div>
       <div class="li"><span class="b">W2 管理工程師</span><span>倉儲 ABC、運輸 OTD、採購三表對帳、SCQA 決策簡報——把現況變成管理動作。</span></div>
       <div class="li"><span class="b">W3 AI 價值師</span><span>分類、回歸、關聯、分群——從「解釋過去」跨進「預測未來」。</span></div>
-      <div class="li"><span class="b">貫穿的習慣</span><span>每個數字自己重跑驗證，四週來零次照抄講義預期值。</span></div>
+      <div class="li"><span class="b">W4 智慧架構師</span><span>文本輿情、路徑最佳化、系統整合、AI Agent——把單點模型組成能落地、會自己動的系統。</span></div>
     </div>
+    <p class="sub" style="margin-top:2.4vh">貫穿四週的習慣只有一個：每個數字自己重跑驗證，零次照抄講義預期值。</p>
   </section>
 
   <!-- 3 我做了什麼（真數字） -->
@@ -144,7 +145,7 @@
       <tr><td class="n">② 需求預測・庫存採購決策</td><td>D12 Prophet 勝 3/5 SKU、讀出雙十一 +552% 槓桿，可直接接採購對帳</td></tr>
       <tr><td class="n">③ 配送路徑・排程最佳化</td><td>D17 OR-Tools 解 CVRPTW，把藏 4 條違規的人工排法變 0 違規可行解</td></tr>
     </table>
-    <p style="margin-top:2.5vh"><b>為什麼找我</b>：我最有價值的時刻，都是抓到「數字對不上」的時候——企業真題的資料只會更高，需要有人守住可信度。</p>
+    <p style="margin-top:2.5vh"><b>為什麼找我</b>：我最有價值的時刻，都是抓到「數字對不上」的時候——企業真題的資料只會更髒，需要有人守住可信度。</p>
   </section>
 
   <!-- 7 結尾 -->
@@ -163,6 +164,7 @@
   <button id="prev" aria-label="上一頁">‹</button>
   <button id="next" aria-label="下一頁">›</button>
 </div>
+
 <script>
   const slides=[...document.querySelectorAll('.slide')];
   let i=0;
@@ -178,6 +180,7 @@
     if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')show(i+1);
     if(e.key==='ArrowLeft'||e.key==='PageUp')show(i-1);
   });
+  // 點畫面右半＝下一頁、左半＝上一頁（手機友善）
   document.querySelector('.stage').addEventListener('click',e=>{
     if(e.target.closest('.nav'))return;
     show(e.clientX > window.innerWidth/2 ? i+1 : i-1);
