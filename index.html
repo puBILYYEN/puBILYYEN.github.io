@@ -94,6 +94,14 @@
   .gallery img{width:100%;display:block;background:#fff}
   .gallery figcaption{font-size:.78em;color:var(--sub);padding:.7vh 1vw}
 
+  /* 分頁②：六張成果圖（inline SVG，自包含、免上傳圖檔） */
+  .charts{display:grid;grid-template-columns:repeat(3,1fr);gap:1vw;padding-bottom:1.4vh}
+  .chart{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1vh 1vw;display:flex;flex-direction:column}
+  .chart h4{font-size:.9em;color:var(--accent);font-weight:800;margin-bottom:.3vh}
+  .chart svg{width:100%;height:auto;display:block}
+  .chart figcaption{font-size:.75em;color:var(--sub);line-height:1.5;margin-top:.5vh}
+  .chart figcaption b{color:var(--accent)}
+
   /* 分頁③：深論 */
   .deep{display:grid;grid-template-columns:1.3fr 1fr;gap:1.2vw;height:100%}
   .deep .lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.6vh 1.4vw;overflow-y:auto}
@@ -120,6 +128,7 @@
     .embed-head{flex-direction:column;align-items:flex-start;gap:6px}
     .cards .card{flex:none}
     .gallery{grid-template-columns:1fr}
+    .charts{grid-template-columns:1fr}
     .deep{grid-template-columns:1fr;height:auto}
     .want{flex-direction:column;align-items:flex-start;gap:8px;padding:14px 16px}
     .want .head{white-space:normal}
@@ -206,7 +215,110 @@
       <div class="method">
         <b>選方法的心法</b>：先看資料長相 → 有標籤？（有＝監督式／沒有＝分群·關聯）→ 答案是類別還是數值？（類別＝分類／數值＝回歸·時序）→ 是文字？（＝LLM）→ 要的是決策不是預測？（＝最佳化）→ 要自動執行？（＝Agent＋人類把關）。下面六張圖，全部是課程期間本機實跑、且 <b>2026-07 逐項重新驗證</b>過的真數字。
       </div>
-      <div class="method" style="text-align:center">📊 六張成果圖表（準確率陷阱／Lift／路徑成本／四群客戶／儲位重排／病灶路線）詳見 BOSS_I 簡報；此線上版週末補上高解析圖。</div></section>
+      <div class="charts">
+
+        <figure class="chart">
+          <h4>① 準確率會騙人（Day11）</h4>
+          <svg viewBox="0 0 300 175" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+            <rect x="150" y="5" width="10" height="10" rx="2" fill="#916a28"/><text x="164" y="14" font-size="11" fill="#5f5344">假模型</text>
+            <rect x="212" y="5" width="10" height="10" rx="2" fill="#6e4526"/><text x="226" y="14" font-size="11" fill="#5f5344">真模型</text>
+            <line x1="40" y1="150" x2="292" y2="150" stroke="#e6ddce"/>
+            <rect x="60" y="53" width="34" height="97" rx="2" fill="#916a28"/>
+            <rect x="98" y="59" width="34" height="91" rx="2" fill="#6e4526"/>
+            <text x="77" y="47" font-size="12" font-weight="700" fill="#37302a" text-anchor="middle">80.7</text>
+            <text x="115" y="53" font-size="12" font-weight="700" fill="#37302a" text-anchor="middle">75.3</text>
+            <text x="96" y="166" font-size="11.5" fill="#5f5344" text-anchor="middle">準確率</text>
+            <rect x="192" y="147" width="34" height="3" rx="1" fill="#a33b2a"/>
+            <rect x="230" y="59" width="34" height="91" rx="2" fill="#6e4526"/>
+            <text x="209" y="142" font-size="12.5" font-weight="800" fill="#a33b2a" text-anchor="middle">0</text>
+            <text x="247" y="53" font-size="12" font-weight="700" fill="#37302a" text-anchor="middle">75.9</text>
+            <text x="228" y="166" font-size="11.5" fill="#5f5344" text-anchor="middle">抓漏率 Recall</text>
+          </svg>
+          <figcaption>假模型準確率 <b>80.7%</b> 反而更高，Recall 卻是 <b>0%</b>——一個要走的客戶都抓不到。指標選錯，AI 越準越危險。</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <h4>② 官方數字也要驗證（Day13）</h4>
+          <svg viewBox="0 0 300 165" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+            <line x1="128" y1="18" x2="128" y2="140" stroke="#a33b2a" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <text x="131" y="152" font-size="10.5" fill="#a33b2a">設計預期 &gt;1.5</text>
+            <text x="4" y="42" font-size="10.5" fill="#5f5344">尿布×啤酒</text>
+            <rect x="95" y="30" width="162" height="20" rx="3" fill="#6e4526"/>
+            <text x="262" y="45" font-size="12" font-weight="800" fill="#6e4526">7.32</text>
+            <text x="4" y="80" font-size="10.5" fill="#5f5344">紅酒×起司</text>
+            <rect x="95" y="68" width="159" height="20" rx="3" fill="#8a5a30"/>
+            <text x="259" y="83" font-size="12" font-weight="800" fill="#8a5a30">7.20</text>
+            <text x="4" y="118" font-size="10.5" fill="#5f5344">醬油→米</text>
+            <rect x="95" y="106" width="114" height="20" rx="3" fill="#916a28"/>
+            <text x="214" y="121" font-size="12" font-weight="800" fill="#916a28">5.18</text>
+          </svg>
+          <figcaption>Apriori 實測 Lift <b>7.32</b>，遠超生成腳本設計預期的「&gt;1.5」——連出題者的模擬設計都不能照單全收。</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <h4>③ 路徑最佳化（Day17）</h4>
+          <svg viewBox="0 0 300 175" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+            <line x1="40" y1="150" x2="285" y2="150" stroke="#e6ddce"/>
+            <rect x="72" y="35" width="62" height="115" rx="3" fill="#a33b2a"/>
+            <rect x="182" y="39" width="62" height="111" rx="3" fill="#6e4526"/>
+            <text x="103" y="29" font-size="12.5" font-weight="800" fill="#a33b2a" text-anchor="middle">$3,148</text>
+            <text x="213" y="29" font-size="12.5" font-weight="800" fill="#6e4526" text-anchor="middle">$3,044</text>
+            <text x="103" y="164" font-size="11" fill="#5f5344" text-anchor="middle">人工·6 違規</text>
+            <text x="213" y="164" font-size="11" fill="#5f5344" text-anchor="middle">OR-Tools·0 違規</text>
+          </svg>
+          <figcaption>成本只降 3.3%，但把 <b>6 條違規</b>（4 時窗+2 超工時）清成 <b>0</b>——賣的是「跑得動的可行解」。</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <h4>④ 客戶分群（Day14）</h4>
+          <svg viewBox="0 0 300 165" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+            <text x="4" y="42" font-size="10.5" fill="#5f5344">穩定中段</text>
+            <rect x="88" y="30" width="175" height="20" rx="3" fill="#2f5250"/>
+            <text x="267" y="45" font-size="11.5" font-weight="700" fill="#2f5250">750</text>
+            <text x="4" y="72" font-size="10.5" fill="#5f5344">流失風險</text>
+            <rect x="88" y="60" width="118" height="20" rx="3" fill="#a33b2a"/>
+            <text x="210" y="75" font-size="11.5" font-weight="800" fill="#a33b2a">504</text>
+            <text x="4" y="102" font-size="10.5" fill="#5f5344">VIP</text>
+            <rect x="88" y="90" width="31" height="20" rx="3" fill="#916a28"/>
+            <text x="123" y="105" font-size="11.5" font-weight="700" fill="#916a28">134</text>
+            <text x="4" y="132" font-size="10.5" fill="#5f5344">沉睡客戶</text>
+            <rect x="88" y="120" width="26" height="20" rx="3" fill="#c3b7a0"/>
+            <text x="118" y="135" font-size="11.5" font-weight="700" fill="#8a7d66">112</text>
+          </svg>
+          <figcaption>K-means 把 <b>1,500</b> 位客戶分 4 群，<b>504</b> 位「流失高風險」要優先搶救。</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <h4>⑤ 儲位重排（Day6）</h4>
+          <svg viewBox="0 0 300 175" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+            <line x1="40" y1="150" x2="285" y2="150" stroke="#e6ddce"/>
+            <rect x="72" y="35" width="60" height="115" rx="3" fill="#916a28"/>
+            <rect x="182" y="105" width="60" height="45" rx="3" fill="#6e4526"/>
+            <text x="102" y="29" font-size="13" font-weight="800" fill="#916a28" text-anchor="middle">6.7 格</text>
+            <text x="212" y="99" font-size="13" font-weight="800" fill="#6e4526" text-anchor="middle">2.6 格</text>
+            <text x="102" y="164" font-size="11" fill="#5f5344" text-anchor="middle">重排前</text>
+            <text x="212" y="164" font-size="11" fill="#5f5344" text-anchor="middle">重排後</text>
+            <text x="157" y="82" font-size="15" font-weight="800" fill="#a33b2a" text-anchor="middle">−61.6%</text>
+          </svg>
+          <figcaption>平均每筆揀貨移動 <b>6.7→2.6</b> 格，距離砍 <b>61.6%</b>——同樣人力，走更少路。</figcaption>
+        </figure>
+
+        <figure class="chart">
+          <h4>⑥ 揪出病灶路線（Day7）</h4>
+          <svg viewBox="0 0 300 175" xmlns="http://www.w3.org/2000/svg" font-family="inherit">
+            <line x1="40" y1="150" x2="285" y2="150" stroke="#e6ddce"/>
+            <rect x="72" y="55" width="60" height="95" rx="3" fill="#6e4526"/>
+            <rect x="182" y="120" width="60" height="30" rx="3" fill="#a33b2a"/>
+            <text x="102" y="49" font-size="13" font-weight="800" fill="#6e4526" text-anchor="middle">79.6%</text>
+            <text x="212" y="114" font-size="13" font-weight="800" fill="#a33b2a" text-anchor="middle">24.9%</text>
+            <text x="102" y="164" font-size="11" fill="#5f5344" text-anchor="middle">整體達交率</text>
+            <text x="212" y="164" font-size="11" fill="#5f5344" text-anchor="middle">病灶 R-03</text>
+          </svg>
+          <figcaption>用控制變量法（同一司機 D-07 跑不同路線）證明病灶是路線 <b>R-03</b>、不是司機。</figcaption>
+        </figure>
+
+      </div>
+    </section>
 
     <!-- ══ 分頁 3：守門人・深論 ══ -->
     <section class="panel" id="p3">
