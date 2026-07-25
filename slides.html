@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#3d2414">
+<title>黃德麟｜BOSS_I 主管簡報・智慧物流班</title>
+<style>
+  :root{
+    --ink:#37302a; --sub:#5f5344; --line:#e6ddce;
+    --accent:#6e4526; --accent-soft:#f3ebdd; --gold:#916a28;
+    --teal:#2f5250; --bg:#f6f1e8; --card:#ffffff; --cream:#ecd6ab;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+    background:#2a1c10;color:var(--ink);overflow:hidden;height:100vh;
+  }
+  /* 舞台 */
+  .stage{position:relative;height:100vh;width:100vw;display:flex;align-items:center;justify-content:center}
+  .slide{
+    position:absolute;inset:0;display:none;flex-direction:column;
+    padding:6vh 7vw;opacity:0;transition:opacity .35s;
+    background:var(--bg);
+  }
+  .slide.on{display:flex;opacity:1}
+  .slide .kicker{font-size:1.05vw;letter-spacing:.3em;color:var(--gold);font-weight:700;margin-bottom:2vh}
+  .slide h1{font-size:4vw;color:var(--accent);line-height:1.2;letter-spacing:.04em}
+  .slide h2{font-size:2.6vw;color:var(--accent);line-height:1.25;margin-bottom:3vh}
+  .slide p{font-size:1.5vw;color:var(--ink);line-height:1.7}
+  .slide .sub{font-size:1.3vw;color:var(--sub)}
+  .big{font-size:6vw;font-weight:800;color:var(--accent);line-height:1.05}
+  .cream{color:var(--gold)}
+
+  /* 封面 */
+  .cover{background:linear-gradient(160deg,#3d2414 0%,#6e4526 100%);color:#fff;justify-content:center}
+  .cover .kicker{color:var(--cream)}
+  .cover h1{color:#fff;font-size:5.5vw}
+  .cover .tag{font-size:2vw;color:var(--cream);font-weight:700;margin-top:3vh}
+  .cover .memo{font-size:1.3vw;opacity:.9;margin-top:2vh}
+  .cover .name{position:absolute;bottom:6vh;left:7vw;font-size:1.2vw;opacity:.85}
+
+  /* 版面元件 */
+  .row{display:flex;gap:2vw;margin-top:3vh}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.4vh 1.6vw;flex:1;text-align:center}
+  .stat .n{font-size:3vw;font-weight:800;color:var(--accent);line-height:1.1}
+  .stat .l{font-size:1vw;color:var(--sub);margin-top:1vh}
+  .list{margin-top:3vh;display:flex;flex-direction:column;gap:2.2vh}
+  .li{display:flex;gap:1.4vw;align-items:baseline;font-size:1.45vw;line-height:1.5}
+  .li .b{color:var(--accent);font-weight:800;white-space:nowrap}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.4vh 2vw;flex:1}
+  .card h3{color:var(--gold);font-size:1.35vw;margin-bottom:1vh}
+  .card p{font-size:1.15vw;color:var(--sub);line-height:1.55}
+  .hero{background:var(--accent-soft);border-left:8px solid var(--accent);border-radius:0 14px 14px 0;
+        padding:3vh 2.4vw;margin:3vh 0;font-size:2vw;font-weight:800;color:var(--accent);line-height:1.4}
+  table.t{width:100%;border-collapse:collapse;margin-top:2.5vh;font-size:1.15vw}
+  table.t td,table.t th{border-bottom:1px solid var(--line);padding:1.4vh 1vw;text-align:left}
+  table.t th{color:var(--accent);font-weight:800}
+  table.t td.n{color:var(--accent);font-weight:800;white-space:nowrap}
+
+  /* 導覽列 */
+  .nav{position:fixed;bottom:2.4vh;right:2.6vw;display:flex;align-items:center;gap:1.2vw;z-index:10}
+  .nav button{background:var(--accent);color:#fff;border:0;width:3vw;height:3vw;min-width:38px;min-height:38px;
+    border-radius:50%;font-size:1.3vw;cursor:pointer;font-family:inherit}
+  .nav .pg{color:#fff;font-size:1.1vw;font-weight:700;background:rgba(0,0,0,.35);padding:.6vh 1.2vw;border-radius:999px}
+  .progress{position:fixed;top:0;left:0;height:5px;background:var(--gold);z-index:10;transition:width .3s}
+
+  @media (max-width:820px){
+    .slide{padding:5vh 8vw}
+    .slide h1{font-size:8vw}.cover h1{font-size:10vw}.slide h2{font-size:6vw}
+    .slide p,.li{font-size:3.6vw}.big{font-size:14vw}.stat .n{font-size:7vw}.stat .l{font-size:2.6vw}
+    .cover .tag{font-size:4.6vw}.cover .memo{font-size:3vw}.hero{font-size:4.6vw}
+    .card h3{font-size:3.6vw}.card p{font-size:3vw}table.t{font-size:3vw}
+    .row{flex-direction:column}.nav button{width:44px;height:44px;font-size:20px}.nav .pg{font-size:3.4vw}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<div class="stage">
+
+  <!-- 1 封面 -->
+  <section class="slide cover on">
+    <div class="kicker">青年 AI 實戰養成班・智慧物流班　BOSS_I</div>
+    <h1>黃德麟</h1>
+    <div class="tag">從真數字開始的資料管家（Data Steward）</div>
+    <div class="memo">四週・九個任務・零次照抄預期值</div>
+    <div class="name">03 黃德麟　·　mcubillyfighter@gmail.com</div>
+  </section>
+
+  <!-- 2 我學了什麼 -->
+  <section class="slide">
+    <div class="kicker">01　我學了什麼</div>
+    <h2>三週走完「資料 → 管理 → AI」進化軸</h2>
+    <div class="list">
+      <div class="li"><span class="b">W1 資料驅動師</span><span>Pandas 清洗、Streamlit 儀表板、RFM 分群——把雜亂訂單變成能看的現況。</span></div>
+      <div class="li"><span class="b">W2 管理工程師</span><span>倉儲 ABC、運輸 OTD、採購三表對帳、SCQA 決策簡報——把現況變成管理動作。</span></div>
+      <div class="li"><span class="b">W3 AI 價值師</span><span>分類、回歸、關聯、分群——從「解釋過去」跨進「預測未來」。</span></div>
+      <div class="li"><span class="b">貫穿的習慣</span><span>每個數字自己重跑驗證，四週來零次照抄講義預期值。</span></div>
+    </div>
+  </section>
+
+  <!-- 3 我做了什麼（真數字） -->
+  <section class="slide">
+    <div class="kicker">02　我做了什麼任務</div>
+    <h2>看狀況、選方法、拿到真數字</h2>
+    <div class="row">
+      <div class="stat"><div class="n">61.6%</div><div class="l">D6 儲位重排・揀貨距離改善</div></div>
+      <div class="stat"><div class="n">+552%</div><div class="l">D12 雙十一單月加成・Prophet</div></div>
+      <div class="stat"><div class="n">7.32</div><div class="l">D13 尿布×啤酒 Lift・設計預期僅 &gt;1.5</div></div>
+      <div class="stat"><div class="n">75.9%</div><div class="l">D11 流失預測 Recall・假模型 0%</div></div>
+    </div>
+    <p class="sub" style="margin-top:3vh">選方法心法：有沒有標籤→監督/非監督；類別還是數值→分類/回歸；是文字→LLM；要決策不是預測→最佳化；要自動執行→Agent＋人類把關。</p>
+  </section>
+
+  <!-- 4 深入論述 Day11 -->
+  <section class="slide">
+    <div class="kicker">03　深入論述・W3 Day11 客戶流失預測</div>
+    <h2>準確率會騙人</h2>
+    <p>情境：1,000 位客戶，要找出誰快流失、優先挽留誰。我刻意做了一個「永遠猜客戶會留下」的假模型當對照——</p>
+    <div class="hero">假模型 Accuracy 80.7% ＞ 真模型 75.3%，<br>但假模型 Recall ＝ 0%：一個要走的客戶都抓不到。</div>
+    <p><b>管理意涵</b>：只看準確率，公司會選一個「什麼都不做」卻分數更高的模型。指標選錯，AI 越準越危險——要救流失客戶，該看的是 Recall。</p>
+  </section>
+
+  <!-- 5 三張守門人王牌 -->
+  <section class="slide">
+    <div class="kicker">04　我的三張「守門人」王牌</div>
+    <h2>我的價值：守住「這個數字能不能信」</h2>
+    <div class="row">
+      <div class="card"><h3>① 準確率會騙人</h3><p>假模型 80.7% 的無用模型差點看起來比真模型好——沒人把關就會被誤信上線。（Day11）</p></div>
+      <div class="card"><h3>② 官方數字也要驗證</h3><p>Apriori 實測 Lift 7.32，遠超生成腳本設計預期的 &gt;1.5——連出題老師的模擬設計都要自己跑。（Day13）</p></div>
+      <div class="card"><h3>③ 整合先對資料</h3><p>四天練習資料同編號不同人，直接拼會當場自打嘴巴——整合第一步是把資料對齊成一份主檔。（BOSS III）</p></div>
+    </div>
+  </section>
+
+  <!-- 6 對未來的想法 -->
+  <section class="slide">
+    <div class="kicker">05　對未來的想法</div>
+    <h2>我想接的題目：資料整合治理／跨系統資料稽核</h2>
+    <table class="t">
+      <tr><th>方向</th><th>我做過的縮小版</th></tr>
+      <tr><td class="n">① 資料整合治理・稽核（主打）</td><td>D8 三表對帳抓出 12 倍採購積壓＋29 筆缺口；BOSS III 把四天互不相容的資料對齊成一份主檔</td></tr>
+      <tr><td class="n">② 需求預測・庫存採購決策</td><td>D12 Prophet 勝 3/5 SKU、讀出雙十一 +552% 槓桿，可直接接採購對帳</td></tr>
+      <tr><td class="n">③ 配送路徑・排程最佳化</td><td>D17 OR-Tools 解 CVRPTW，把藏 4 條違規的人工排法變 0 違規可行解</td></tr>
+    </table>
+    <p style="margin-top:2.5vh"><b>為什麼找我</b>：我最有價值的時刻，都是抓到「數字對不上」的時候——企業真題的資料只會更高，需要有人守住可信度。</p>
+  </section>
+
+  <!-- 7 結尾 -->
+  <section class="slide cover">
+    <div class="kicker" style="color:var(--cream)">結尾</div>
+    <h1 style="font-size:3.6vw;line-height:1.35">會分析的人很多，<br>能守住數字可信度的人很少。</h1>
+    <div class="tag" style="margin-top:3vh">四週、九個任務、零次照抄預期值——這就是我的作品集。</div>
+    <div class="name">03 黃德麟　·　mcubillyfighter@gmail.com　·　pubilyyen.github.io</div>
+  </section>
+
+</div>
+
+<div class="progress" id="prog"></div>
+<div class="nav">
+  <span class="pg" id="pg">1 / 7</span>
+  <button id="prev" aria-label="上一頁">‹</button>
+  <button id="next" aria-label="下一頁">›</button>
+</div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  let i=0;
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    document.getElementById('pg').textContent=(i+1)+' / '+slides.length;
+    document.getElementById('prog').style.width=((i+1)/slides.length*100)+'%';
+  }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')show(i+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')show(i-1);
+  });
+  document.querySelector('.stage').addEventListener('click',e=>{
+    if(e.target.closest('.nav'))return;
+    show(e.clientX > window.innerWidth/2 ? i+1 : i-1);
+  });
+  show(0);
+</script>
+</body>
+</html>
