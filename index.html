@@ -85,6 +85,17 @@
   .want .body{font-size:.86em;color:var(--ink);line-height:1.55}
   .want .body b{color:var(--accent)}
 
+  /* 分頁①：雙嵌入（簡報＋儀表板，同等位置）＋代表專案卡 */
+  .dual-embed{display:grid;grid-template-columns:1fr 1fr;gap:1vw;flex-shrink:0}
+  .dual-embed .embed-box iframe{height:38vh}
+  .proj-head{font-weight:800;color:var(--accent);font-size:1em;flex-shrink:0}
+  .proj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1vw;flex-shrink:0}
+  .proj-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.1vh 1vw}
+  .proj-card .pt{font-weight:800;color:var(--accent);font-size:.98em;margin-bottom:.2vh}
+  .proj-card .tags{font-size:.72em;color:var(--gold);font-weight:700;margin-bottom:.6vh}
+  .proj-card p{font-size:.8em;color:var(--sub);line-height:1.5;margin-bottom:.35vh}
+  .proj-card p b{color:var(--accent)}
+
   /* 分頁②：成果圖庫 */
   .method{background:var(--accent-soft);border-radius:12px;padding:1.1vh 1.2vw;font-size:.88em;color:var(--ink);margin-bottom:1.2vh}
   .method b{color:var(--accent)}
@@ -128,6 +139,9 @@
     .cards .card{flex:none}
     .gallery{grid-template-columns:1fr}
     .charts{grid-template-columns:1fr}
+    .dual-embed{grid-template-columns:1fr;gap:14px}
+    .dual-embed .embed-box iframe{height:280px}
+    .proj-grid{grid-template-columns:1fr;gap:10px}
     .deep{grid-template-columns:1fr;height:auto}
     .want{flex-direction:column;align-items:flex-start;gap:8px;padding:14px 16px}
     .want .head{white-space:normal}
@@ -168,7 +182,7 @@
   <div class="panels">
 
     <!-- ══ 分頁 1：門面（預設）══ -->
-    <section class="panel active" id="p1">
+    <section class="panel scroll active" id="p1">
       <div class="stats">
         <div class="stat"><div class="num">+552%</div><div class="lbl">雙十一單月需求暴增・Prophet 解讀</div></div>
         <div class="stat"><div class="num">61.6%</div><div class="lbl">倉儲儲位重排・揀貨距離縮短</div></div>
@@ -176,24 +190,52 @@
         <div class="stat"><div class="num">7.32</div><div class="lbl">尿布×啤酒購物籃關聯 Lift（1＝無關聯）</div></div>
       </div>
 
-      <div class="mid">
+      <div class="dual-embed">
         <div class="embed-box">
           <div class="embed-head">
-            <div class="t">作品簡報 · 資料分析實戰總覽</div>
-            <div style="display:flex;gap:.5vw">
-              <a class="btn" href="slides.html" target="_blank">開啟完整簡報 →</a>
-              <a class="btn" style="background:var(--teal)" href="https://day20-dashboard-idmahs2tegzbsezm5ywekv.streamlit.app/" target="_blank">互動儀表板 →</a>
-            </div>
+            <div class="t">作品簡報</div>
+            <a class="btn" href="slides.html" target="_blank">開啟完整簡報 →</a>
           </div>
           <iframe src="slides.html" title="作品簡報"></iframe>
-          <div class="embed-note">簡報結構：我的技能地圖 → 九個專案「什麼情境用什麼模型」→ 客戶流失預測深入案例 → 我想解決的問題</div>
         </div>
+        <div class="embed-box">
+          <div class="embed-head">
+            <div class="t">互動儀表板</div>
+            <a class="btn" style="background:var(--teal)" href="https://day20-dashboard-idmahs2tegzbsezm5ywekv.streamlit.app/" target="_blank">開啟儀表板 →</a>
+          </div>
+          <iframe src="https://day20-dashboard-idmahs2tegzbsezm5ywekv.streamlit.app/?embed=true" title="互動儀表板"></iframe>
+        </div>
+      </div>
 
-        <div class="cards">
-          <div class="head">三個我做對的分析判斷（詳見「深入案例」頁）</div>
-          <div class="card"><h3>用對的指標驗收模型</h3><p>全猜「留客」的 baseline 模型 Accuracy 80.7%，但 Recall＝0%、一個要流失的客戶都抓不到——所以我用 Recall（抓漏率）當主指標。</p></div>
-          <div class="card"><h3>不照收給定的數字</h3><p>購物籃關聯實測 Lift 7.32，遠高於資料本身的設計假設（&gt;1.5）——給定的參考值我也會自己重算，不照單全收。</p></div>
-          <div class="card"><h3>跨來源先對齊主檔</h3><p>四個系統的客戶主鍵不一致，直接 join 會產生互相矛盾的客戶輪廓——第一步永遠是建立 master 對齊，再分析。</p></div>
+      <div class="proj-head">代表專案（技術棧・真實成果數字）</div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="pt">客戶流失預警系統</div>
+          <div class="tags">Python · scikit-learn（決策樹）· pandas</div>
+          <p><b>痛點</b>：客戶流失難以及早發現，行銷預算容易花在錯的人身上。</p>
+          <p><b>做法</b>：建 baseline 對照，改用 Recall（而非 Accuracy）驗收模型。</p>
+          <p><b>成果</b>：Recall 75.9%（baseline 0%），抓回 NT$394,456 消費曝險（66.6%）。</p>
+        </div>
+        <div class="proj-card">
+          <div class="pt">配送路徑最佳化</div>
+          <div class="tags">Python · OR-Tools（CVRPTW）</div>
+          <p><b>痛點</b>：人工排的配送路線常暗藏時窗與工時違規，卻沒人發現。</p>
+          <p><b>做法</b>：用 OR-Tools 求解容量＋時窗限制下的最低成本路徑。</p>
+          <p><b>成果</b>：人工排法 6 條違規（不可行）→ 0 違規、成本再省 3.3%。</p>
+        </div>
+        <div class="proj-card">
+          <div class="pt">倉儲儲位重排</div>
+          <div class="tags">Python · pandas · ABC 分類</div>
+          <p><b>痛點</b>：儲位擺放沒有邏輯，揀貨員每天多走很多冤枉路。</p>
+          <p><b>做法</b>：用 ABC 分類分析出貨頻率，把高頻商品移到黃金儲位。</p>
+          <p><b>成果</b>：平均揀貨移動距離 6.7→2.6 格，縮短 61.6%。</p>
+        </div>
+        <div class="proj-card">
+          <div class="pt">跨系統資料整合</div>
+          <div class="tags">SQLite · Python · MDM 主資料治理</div>
+          <p><b>痛點</b>：四個系統各自為政，客戶主鍵不一致，資料兜不起來。</p>
+          <p><b>做法</b>：建立 master 對齊機制，把多來源資料整合成單一事實來源。</p>
+          <p><b>成果</b>：三表對帳抓出 12 倍採購積壓＋29 筆缺口，四份資料對齊成一份主檔。</p>
         </div>
       </div>
 
