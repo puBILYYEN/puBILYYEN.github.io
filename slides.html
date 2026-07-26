@@ -12,67 +12,61 @@
     --teal:#2f5250; --bg:#f6f1e8; --card:#ffffff; --cream:#ecd6ab;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%}
+  html,body{height:100%;width:100%}
   body{
     font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
-    background:#2a1c10;color:var(--ink);overflow:hidden;height:100vh;
+    background:#2a1c10;color:var(--ink);overflow:hidden;
   }
-  /* 舞台 */
-  .stage{position:relative;height:100vh;width:100vw;display:flex;align-items:center;justify-content:center}
+  .stage{position:relative;height:100%;width:100%;display:flex;align-items:center;justify-content:center}
   .slide{
     position:absolute;inset:0;display:none;flex-direction:column;
-    padding:6vh 7vw;opacity:0;transition:opacity .35s;
-    background:var(--bg);
+    padding:32px 40px;opacity:0;transition:opacity .35s;
+    background:var(--bg);box-sizing:border-box;overflow-y:auto;
   }
   .slide.on{display:flex;opacity:1}
-  .slide .kicker{font-size:1.05vw;letter-spacing:.3em;color:var(--gold);font-weight:700;margin-bottom:2vh}
-  .slide h1{font-size:4vw;color:var(--accent);line-height:1.2;letter-spacing:.04em}
-  .slide h2{font-size:2.6vw;color:var(--accent);line-height:1.25;margin-bottom:3vh}
-  .slide p{font-size:1.5vw;color:var(--ink);line-height:1.7}
-  .slide .sub{font-size:1.3vw;color:var(--sub)}
-  .big{font-size:6vw;font-weight:800;color:var(--accent);line-height:1.05}
+  .slide .kicker{font-size:clamp(11px, 1.2vw, 15px);letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:8px}
+  .slide h1{font-size:clamp(22px, 3.2vw, 42px);color:var(--accent);line-height:1.2;letter-spacing:.04em}
+  .slide h2{font-size:clamp(18px, 2.2vw, 28px);color:var(--accent);line-height:1.25;margin-bottom:16px}
+  .slide p{font-size:clamp(13px, 1.2vw, 16px);color:var(--ink);line-height:1.65;margin-bottom:8px}
+  .slide .sub{font-size:clamp(12px, 1vw, 14px);color:var(--sub)}
+  .big{font-size:clamp(28px, 4vw, 52px);font-weight:800;color:var(--accent);line-height:1.1}
   .cream{color:var(--gold)}
 
-  /* 封面 */
-  .cover{background:linear-gradient(160deg,#3d2414 0%,#6e4526 100%);color:#fff;justify-content:center}
+  .cover{background:linear-gradient(160deg,#3d2414 0%,#6e4526 100%);color:#fff;justify-content:center;padding:40px}
   .cover .kicker{color:var(--cream)}
-  .cover h1{color:#fff;font-size:5.5vw}
-  .cover .tag{font-size:2vw;color:var(--cream);font-weight:700;margin-top:3vh}
-  .cover .memo{font-size:1.3vw;opacity:.9;margin-top:2vh}
-  .cover .name{position:absolute;bottom:6vh;left:7vw;font-size:1.2vw;opacity:.85}
+  .cover h1{color:#fff;font-size:clamp(26px, 4vw, 50px)}
+  .cover .tag{font-size:clamp(15px, 1.8vw, 24px);color:var(--cream);font-weight:700;margin-top:16px}
+  .cover .memo{font-size:clamp(12px, 1.2vw, 16px);opacity:.9;margin-top:10px}
+  .cover .name{position:absolute;bottom:20px;left:40px;font-size:clamp(11px, 1.1vw, 15px);opacity:.85}
 
-  /* 版面元件 */
-  .row{display:flex;gap:2vw;margin-top:3vh}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.4vh 1.6vw;flex:1;text-align:center}
-  .stat .n{font-size:3vw;font-weight:800;color:var(--accent);line-height:1.1}
-  .stat .l{font-size:1vw;color:var(--sub);margin-top:1vh}
-  .list{margin-top:3vh;display:flex;flex-direction:column;gap:2.2vh}
-  .li{display:flex;gap:1.4vw;align-items:baseline;font-size:1.45vw;line-height:1.5}
-  .li .b{color:var(--accent);font-weight:800;white-space:nowrap}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:2.4vh 2vw;flex:1}
-  .card h3{color:var(--gold);font-size:1.35vw;margin-bottom:1vh}
-  .card p{font-size:1.15vw;color:var(--sub);line-height:1.55}
-  .hero{background:var(--accent-soft);border-left:8px solid var(--accent);border-radius:0 14px 14px 0;
-        padding:3vh 2.4vw;margin:3vh 0;font-size:2vw;font-weight:800;color:var(--accent);line-height:1.4}
-  table.t{width:100%;border-collapse:collapse;margin-top:2.5vh;font-size:1.15vw}
-  table.t td,table.t th{border-bottom:1px solid var(--line);padding:1.4vh 1vw;text-align:left}
+  .row{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 10px;flex:1;min-width:120px;text-align:center}
+  .stat .n{font-size:clamp(16px, 2vw, 26px);font-weight:800;color:var(--accent);line-height:1.1}
+  .stat .l{font-size:clamp(11px, 0.9vw, 13px);color:var(--sub);margin-top:6px;line-height:1.4}
+  
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;flex:1;display:flex;flex-direction:column;gap:6px}
+  .card h3{color:var(--gold);font-size:clamp(13px, 1.2vw, 17px)}
+  .card p{font-size:clamp(12px, 1vw, 14px);color:var(--sub);line-height:1.5}
+  
+  .hero{background:var(--accent-soft);border-left:6px solid var(--accent);border-radius:0 12px 12px 0;
+        padding:14px 18px;margin:12px 0;font-size:clamp(13px, 1.4vw, 19px);font-weight:800;color:var(--accent);line-height:1.4}
+  
+  table.t{width:100%;border-collapse:collapse;margin-top:12px;font-size:clamp(11px, 1vw, 14px)}
+  table.t td,table.t th{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
   table.t th{color:var(--accent);font-weight:800}
   table.t td.n{color:var(--accent);font-weight:800;white-space:nowrap}
 
-  /* 導覽列 */
-  .nav{position:fixed;bottom:2.4vh;right:2.6vw;display:flex;align-items:center;gap:1.2vw;z-index:10}
-  .nav button{background:var(--accent);color:#fff;border:0;width:3vw;height:3vw;min-width:38px;min-height:38px;
-    border-radius:50%;font-size:1.3vw;cursor:pointer;font-family:inherit}
-  .nav .pg{color:#fff;font-size:1.1vw;font-weight:700;background:rgba(0,0,0,.35);padding:.6vh 1.2vw;border-radius:999px}
-  .progress{position:fixed;top:0;left:0;height:5px;background:var(--gold);z-index:10;transition:width .3s}
+  .nav{position:fixed;bottom:16px;right:20px;display:flex;align-items:center;gap:8px;z-index:10}
+  .nav button{background:var(--accent);color:#fff;border:0;width:32px;height:32px;
+    border-radius:50%;font-size:16px;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center}
+  .nav .pg{color:#fff;font-size:12px;font-weight:700;background:rgba(0,0,0,.45);padding:4px 10px;border-radius:999px}
+  .progress{position:fixed;top:0;left:0;height:4px;background:var(--gold);z-index:10;transition:width .3s}
 
-  @media (max-width:820px){
-    .slide{padding:5vh 8vw}
-    .slide h1{font-size:8vw}.cover h1{font-size:10vw}.slide h2{font-size:6vw}
-    .slide p,.li{font-size:3.6vw}.big{font-size:14vw}.stat .n{font-size:7vw}.stat .l{font-size:2.6vw}
-    .cover .tag{font-size:4.6vw}.cover .memo{font-size:3vw}.hero{font-size:4.6vw}
-    .card h3{font-size:3.6vw}.card p{font-size:3vw}table.t{font-size:3vw}
-    .row{flex-direction:column}.nav button{width:44px;height:44px;font-size:20px}.nav .pg{font-size:3.4vw}
+  @media (max-width:600px){
+    .slide{padding:20px 16px}
+    .row{flex-direction:column}
+    .cover{padding:24px 20px}
+    .cover .name{bottom:16px;left:20px}
   }
 </style>
 </head>
@@ -84,93 +78,87 @@
   <section class="slide cover on">
     <div class="kicker">資料分析作品簡報</div>
     <h1>黃德麟</h1>
-    <div class="tag">資料分析師 · 物流與供應鏈數據</div>
-    <div class="memo">工研院 240 小時 AI 實戰・九個資料專案</div>
+    <div class="tag">資料分析師 · 營運智慧分析（BI）</div>
+    <div class="memo">物流與供應鏈數據分析與最佳化<br>工研院 240 小時 AI 實戰養成・四大實體專案<br>iPAS 雙證備考中：AI 應用規劃師（初級）＋ 營運智慧分析師（初級／BI）· 2026 年 10–11 月應考</div>
     <div class="name">黃德麟　·　mcubillyfighter@gmail.com</div>
   </section>
 
-  <!-- 2 我學了什麼 -->
+  <!-- 2 專案總覽 -->
   <section class="slide">
-    <div class="kicker">01　我的技能地圖</div>
-    <h2>資料 → 分析 → 機器學習 → 系統整合</h2>
-    <div class="list">
-      <div class="li"><span class="b">資料處理</span><span>Pandas 清洗、Streamlit 儀表板、RFM 分群——把雜亂訂單變成能看的客戶輪廓。</span></div>
-      <div class="li"><span class="b">商業分析</span><span>倉儲 ABC、運輸準點率、採購三表對帳、決策簡報——把現況變成管理動作。</span></div>
-      <div class="li"><span class="b">機器學習</span><span>分類、回歸、關聯、分群——從「解釋過去」跨進「預測未來」。</span></div>
-      <div class="li"><span class="b">系統與最佳化</span><span>文本情感、OR-Tools 路徑最佳化、SQLite 系統整合、AI Agent——把單點模型組成能落地的系統。</span></div>
-    </div>
-    <p class="sub" style="margin-top:2.4vh">一貫的習慣：每個結論自己重跑驗證、追得到出處。</p>
-  </section>
-
-  <!-- 3 我做了什麼（真數字） -->
-  <section class="slide">
-    <div class="kicker">02　我做了什麼任務</div>
-    <h2>看狀況、選方法、拿到真數字</h2>
+    <div class="kicker">01　專案成果總覽</div>
+    <h2>四個數據導向的商業解決方案</h2>
     <div class="row">
-      <div class="stat"><div class="n">61.6%</div><div class="l">倉儲儲位重排・揀貨距離縮短</div></div>
-      <div class="stat"><div class="n">+552%</div><div class="l">雙十一單月需求暴增・Prophet</div></div>
-      <div class="stat"><div class="n">7.32</div><div class="l">尿布×啤酒購物籃 Lift（1＝無關聯）</div></div>
-      <div class="stat"><div class="n">75.9%</div><div class="l">客戶流失預測 Recall・全猜留客僅 0%</div></div>
+      <div class="stat"><div class="n">智慧控制塔</div><div class="l">SQLite＋MDM 主資料治理<br>跨 3 表對帳、整合 50 位客戶 360° 視角</div></div>
+      <div class="stat"><div class="n">75.9% Recall</div><div class="l">客戶流失預警系統<br>精準鎖定 NT$394K 營收風險</div></div>
+      <div class="stat"><div class="n">0 條違規</div><div class="l">OR-Tools 配送路徑最佳化<br>人工 6 條違規降為 0，成本省 3.3%</div></div>
+      <div class="stat"><div class="n">Prophet +552%</div><div class="l">銷量預測與購物籃推薦<br>解讀雙十一爆發點，Lift 達 7.32</div></div>
     </div>
-    <p class="sub" style="margin-top:3vh">選方法心法：有沒有標籤→監督/非監督；類別還是數值→分類/回歸；是文字→LLM；要決策不是預測→最佳化；要自動執行→Agent＋人類把關。</p>
+    <p class="sub" style="margin-top:16px">實戰核心：從商業痛點出發、建立模型與最佳化演算法，開發 Streamlit 可視化看板並對接前線執行。</p>
   </section>
 
-  <!-- 4 深入案例 客戶流失預測 -->
+  <!-- 3 專案一 -->
   <section class="slide">
-    <div class="kicker">03　深入案例・客戶流失預測</div>
-    <h2>為什麼我不用準確率驗收模型</h2>
-    <p>情境：1,000 位客戶，要在有限預算下找出誰快流失、優先挽留誰。我先建一個「永遠猜留客」的 baseline 當對照——</p>
-    <div class="hero">baseline Accuracy 80.7% ＞ 決策樹 75.3%，<br>但 baseline Recall ＝ 0%：一個要走的客戶都抓不到。</div>
-    <p><b>商業意涵</b>：不平衡資料只看準確率，會選到「什麼都不做」卻分數更高的模型。要抓回會流失的客戶，該看的是 Recall——我的模型做到 75.9%，讓挽留資源花在對的人身上。</p>
-    <p><b>換算成錢</b>：測試集裡實際會流失的 29 位客戶，過去消費金額合計 NT$592,602。模型抓到其中 22 人（Recall 75.9%），但這 22 人的消費金額只佔 NT$394,456（66.6%）——漏掉的 7 人裡藏著比例更高的高價值客戶，只看「抓到幾個人」會低估風險缺口。</p>
+    <div class="kicker">02　專案一｜智慧物流控制塔與資料整合</div>
+    <h2>跨系統主資料治理與實時數據看板</h2>
+    <p><b>商業痛點 (Situation)</b>：倉儲、運輸、採購各自產生資料，客戶主鍵與格式不一致，直接 join 會得到互相矛盾的客戶輪廓。</p>
+    <p><b>數據技術 (Action)</b>：建立 MDM 主資料治理規則，採用 SQLite 建置關聯式資料庫，並開發 Streamlit 監控看板。</p>
+    <p><b>關鍵成果 (Result)</b>：跨三表對帳抓出 12 倍採購積壓與 29 筆缺口，把 4 份對不上的資料對齊成單一事實來源 (Single Source of Truth)，主管可在一張畫面看完客戶的四個模型結論。</p>
   </section>
 
-  <!-- 5 三個分析判斷 -->
+  <!-- 4 專案二 -->
   <section class="slide">
-    <div class="kicker">04　我做對的三個分析判斷</div>
-    <h2>三個一貫的判斷習慣</h2>
-    <div class="row">
-      <div class="card"><h3>① 用對指標驗收模型</h3><p>全猜留客的 baseline 準確率 80.7% 卻 Recall 0%——不平衡資料要看 Recall／F1，否則會誤放無用模型上線。</p></div>
-      <div class="card"><h3>② 不照收給定的數字</h3><p>購物籃關聯實測 Lift 7.32，遠高於資料本身的設計假設 &gt;1.5——給定的參考值我也自己重算、誠實標註落差。</p></div>
-      <div class="card"><h3>③ 跨來源先對齊主檔</h3><p>多系統客戶主鍵不一致，直接拼會出現互相矛盾的客戶輪廓——整合第一步是建 master 對齊再分析。</p></div>
-    </div>
+    <div class="kicker">03　專案二｜客戶流失預警與營收風險控制</div>
+    <h2>打破傳統 Accuracy 陷阱：Recall 75.9%</h2>
+    <p><b>商業痛點 (Situation)</b>：1,000 位客戶中約 19.6% 已流失，難以及早察覺；傳統指標容易誤導資源配置，造成高價值客戶無預警流失。</p>
+    <div class="hero">Baseline Accuracy 80.7%（Recall 0%，無法抓出任何流失）<br>決策樹模型 Accuracy 75.3%（Recall 75.9%，四個要流失的抓回三個）</div>
+    <p><b>關鍵成果 (Result)</b>：測試集 29 位實際流失客戶消費金額合計 <b>NT$592,602</b>，模型抓出的 22 人涵蓋 <b>NT$394,456（66.6%）</b>；前線業務依顧客類型執行專屬挽留與優惠通知，達成商業閉環。</p>
+    <p><b>更深一層的發現</b>：抓到 75.9% 的<b>人數</b>卻只覆蓋 66.6% 的<b>金額</b>——漏掉的 7 人單價更高，後續應改用金額加權評估。（本專案為 1,000 筆 PoC 驗證；自動化評分與模型漂移監控尚未建置，是下一步而非已完成功能。）</p>
   </section>
 
-  <!-- 5.5 從分析到落地 -->
+  <!-- 5 專案三 -->
   <section class="slide">
-    <div class="kicker">05　從分析到落地</div>
-    <h2>洞察之後：誰在什麼時候做什麼</h2>
-    <p><b>最後一哩路</b>：模型輸出的名單不是丟一份 CSV 就結束——對「長期沒下單＋頻次低」的客戶，建議客戶經理本週優先電話挽留＋折扣券；「近期下單變稀」的先推優惠通知。分析要能被前線接住，才算真正落地。</p>
-    <p><b>規模化</b>：本次驗證是 1,000 筆 PoC；正式上線時模型邏輯不必重寫，只需把資料來源從 CSV 換成資料倉庫查詢，同一套 Recall-first 驗收邏輯可以套用到百萬筆規模。</p>
-    <p><b>下一步規劃（尚未建置，誠實標註）</b>：長期維運還需要排程批次評分、資料品質檢核、模型飄移監控——這是我認知到的下一步，不是目前已完成的功能。</p>
+    <div class="kicker">04　專案三｜智能配送路徑與時窗排程最佳化</div>
+    <h2>從「不可行解」到「100% 合規可行解」</h2>
+    <p><b>商業痛點 (Situation)</b>：人工排班路線隱藏 4 條門市時窗違規與 2 台車輛超工時風險，屬實質不可行解。</p>
+    <p><b>數據技術 (Action)</b>：採用 Google OR-Tools 建立帶時間窗車輛路徑限制模型 (CVRPTW)，求解最佳配送車輛與路線組合。</p>
+    <p><b>關鍵成果 (Result)</b>：將 6 條時窗與工時違規清降為 <b>0 違規</b>，並且配送總成本由 NT$3,148 降低至 <b>NT$3,044</b>（成本再下降 3.3%）。</p>
   </section>
 
-  <!-- 6 對未來的想法 -->
+  <!-- 6 專案四 -->
   <section class="slide">
-    <div class="kicker">06　對未來的想法</div>
-    <h2>我想解決的問題（附做過的縮小版）</h2>
+    <div class="kicker">05　專案四｜需求預測、購物籃關聯與客戶分群</div>
+    <h2>Prophet 預測 × Apriori 關聯 × K-means 分群</h2>
+    <p><b>需求預測 (Prophet)</b>：精準讀出雙十一單月 <b>+552%</b> 需求暴增與 Q4 季節性峰值，直接連結採購與備貨決策。</p>
+    <p><b>購物籃關聯 (Apriori)</b>：從 3,300 筆交易中挖掘出尿布↔啤酒（<b>Lift 7.32</b>）、紅酒↔起司（Lift 7.20）高關聯商品組合。</p>
+    <p><b>客戶 RFM 分群 (K-means)</b>：將 1,500 位客戶精準劃分為 4 大群體（VIP 134人 / 流失風險 504人），提供客製化行銷推播策略。</p>
+  </section>
+
+  <!-- 7 技術與價值 -->
+  <section class="slide">
+    <div class="kicker">06　技術棧與商業價值小結</div>
+    <h2>我能為貴公司創造的價值</h2>
     <table class="t">
-      <tr><th>方向</th><th>我做過的縮小版</th></tr>
-      <tr><td class="n">① 資料整合・對帳稽核</td><td>跨系統三表對帳抓出 12 倍採購積壓＋29 筆缺口；把四份互不相容的資料對齊成一份主檔</td></tr>
-      <tr><td class="n">② 需求預測・採購決策</td><td>Prophet 銷量預測勝 3/5、讀出雙十一 +552% 備貨槓桿，可直接接採購決策</td></tr>
-      <tr><td class="n">③ 配送路徑・排程最佳化</td><td>OR-Tools 解車輛路徑，把藏 4 條違規的人工排法變 0 違規、成本更低的可行解</td></tr>
+      <tr><th>領域與技術</th><th>實體專案成果</th></tr>
+      <tr><td class="n">資料工程與治理 (SQLite/MDM)</td><td>跨系統三表對帳抓出 12 倍採購積壓；建立單一事實來源主檔</td></tr>
+      <tr><td class="n">機器學習與預測 (Scikit-learn/Prophet)</td><td>流失預警 Recall 75.9% 鎖定 NT$394K 營收風險；預測檔期 +552% 需求峰值</td></tr>
+      <tr><td class="n">作業研究最佳化 (OR-Tools)</td><td>解車輛路徑 CVRPTW，將人工排班 6 條違規清除為 0，降低配送成本 3.3%</td></tr>
+      <tr><td class="n">數據可視化 (Streamlit/Plotly)</td><td>獨立開發智慧物流控制塔與分析決策儀表板，提供主管即時監控</td></tr>
     </table>
-    <p style="margin-top:2.5vh"><b>我能帶來的</b>：把跨來源、對不上的資料整理成可信的分析基礎，再用模型與最佳化把它變成能行動的決策。企業真實資料只會更雜——這正是我想解決的問題。</p>
   </section>
 
-  <!-- 7 結尾 -->
+  <!-- 8 結尾 -->
   <section class="slide cover">
     <div class="kicker" style="color:var(--cream)">結尾</div>
-    <h1 style="font-size:3.6vw;line-height:1.35">把資料變成能行動的決策，<br>是我想為公司做的事。</h1>
-    <div class="tag" style="margin-top:3vh">九個資料專案，每個結論都追得到出處。</div>
-    <div class="name">黃德麟　·　mcubillyfighter@gmail.com　·　pubilyyen.github.io</div>
+    <h1 style="font-size:clamp(22px, 3.2vw, 42px);line-height:1.35">從商業痛點出發，<br>打造可落地的數據產品與決策系統。</h1>
+    <div class="tag" style="margin-top:20px">黃德麟 · 資料分析師（營運智慧分析／BI）</div>
+    <div class="name">📧 mcubillyfighter@gmail.com　·　🌐 pubilyyen.github.io</div>
   </section>
 
 </div>
 
 <div class="progress" id="prog"></div>
 <div class="nav">
-  <span class="pg" id="pg">1 / 7</span>
+  <span class="pg" id="pg">1 / 8</span>
   <button id="prev" aria-label="上一頁">‹</button>
   <button id="next" aria-label="下一頁">›</button>
 </div>
@@ -190,7 +178,6 @@
     if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')show(i+1);
     if(e.key==='ArrowLeft'||e.key==='PageUp')show(i-1);
   });
-  // 點畫面右半＝下一頁、左半＝上一頁（手機友善）
   document.querySelector('.stage').addEventListener('click',e=>{
     if(e.target.closest('.nav'))return;
     show(e.clientX > window.innerWidth/2 ? i+1 : i-1);
