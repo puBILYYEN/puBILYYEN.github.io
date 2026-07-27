@@ -70,6 +70,21 @@
   .stat .num{font-size:1.8em;font-weight:800;color:var(--accent);line-height:1.2}
   .stat .lbl{font-size:.82em;color:var(--sub);margin-top:4px}
 
+  /* 財務影響主視覺（真數字三情境，非假設情境） */
+  .roi-hero{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;flex-shrink:0}
+  .roi-head{font-weight:800;color:var(--accent);font-size:.98em;margin-bottom:4px}
+  .roi-sub{font-size:.78em;color:var(--sub);margin-bottom:12px}
+  .roi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .roi-item{border-radius:10px;padding:12px 14px;text-align:center}
+  .roi-item.bad{background:#fbeae7;border:1px solid #e3b3a8}
+  .roi-item.good{background:var(--accent-soft);border:1px solid var(--line)}
+  .roi-item.warn{background:#fbf3e3;border:1px solid #e6d3a3}
+  .roi-n{font-size:1.55em;font-weight:800;line-height:1.15}
+  .roi-item.bad .roi-n{color:#a33b2a}
+  .roi-item.good .roi-n{color:var(--accent)}
+  .roi-item.warn .roi-n{color:#916a28}
+  .roi-l{font-size:.78em;color:var(--sub);margin-top:4px;line-height:1.4}
+
   .embed-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column}
   .embed-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
   .embed-head .t{font-weight:800;color:var(--accent);font-size:1.05em}
@@ -170,6 +185,16 @@
         <div class="stat"><div class="num">75.9%</div><div class="lbl">客戶流失預測 Recall（成功鎖定 NT$394K 營收曝險）</div></div>
         <div class="stat"><div class="num">0 條違規</div><div class="lbl">OR-Tools 配送最佳化（人工 6 條違規 → 0 違規）</div></div>
         <div class="stat"><div class="num">+552%</div><div class="lbl">Prophet 雙十一需求爆發點精準預測</div></div>
+      </div>
+
+      <div class="roi-hero">
+        <div class="roi-head">客戶流失預警系統・財務影響（測試集 29 位實際流失客戶，真實歷史消費金額）</div>
+        <div class="roi-sub">三個數字都是重跑真模型算出來的，不是預估情境——沒有假設「打電話挽留的成功率」這種算不出來的數字。</div>
+        <div class="roi-row">
+          <div class="roi-item bad"><div class="roi-n">NT$592,602</div><div class="roi-l">不作為：全額曝險，沒有模型時 100% 意外流失</div></div>
+          <div class="roi-item good"><div class="roi-n">NT$394,456</div><div class="roi-l">現行模型（Recall 75.9%）：66.6% 曝險轉為可提前應對</div></div>
+          <div class="roi-item warn"><div class="roi-n">NT$198,146</div><div class="roi-l">殘餘風險：33.4% 仍未被偵測到，是模型現有的限制</div></div>
+        </div>
       </div>
 
       <div class="dual-embed">
